@@ -1,6 +1,5 @@
 import timestamp from "mongoose-timestamp";
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
 
 const CourseSchema = new mongoose.Schema({
   name: {
