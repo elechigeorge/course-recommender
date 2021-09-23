@@ -5,7 +5,10 @@ import bcrypt from "bcryptjs";
 const CourseSchema = new mongoose.Schema({
    name: {
        type: String
-   }
+   },
+   requirements: [
+       
+   ]
 });
 
 CourseSchema.plugin(timestamp);
