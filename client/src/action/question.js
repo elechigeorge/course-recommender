@@ -1,4 +1,4 @@
-import api from "../utils/api";
+import api from "../util/api";
 import {
   CREATE_QUESTION_REQUEST,
   CREATE_QUESTION_SUCCESS,

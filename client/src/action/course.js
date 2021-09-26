@@ -1,4 +1,4 @@
-import api from "../utils/api";
+import api from "../util/api";
 import {
   CREATE_COURSE_REQUEST,
   CREATE_COURSE_SUCCESS,

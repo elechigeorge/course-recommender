@@ -1,4 +1,4 @@
-import api from "../utils/api";
+import api from "../util/api";
 import {
   STUDENT_LOGIN_FAILED,
   STUDENT_LOGIN_REQUEST,

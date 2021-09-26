@@ -1,4 +1,4 @@
-import api from "../utils/api";
+import api from "../util/api";
 import {
   CREATE_SUBJECT_REQUEST,
   CREATE_SUBJECT_SUCCESS,
@@ -8,7 +8,7 @@ import {
   GET_SUBJECT_FAILED,
 } from "../constant/types";
 
-import { logout } from "./student";
+import { logout } from "./admin";
 
 // FETCH STORED SUBJECTS
 export const getSubject = () => async (dispatch, getState) => {

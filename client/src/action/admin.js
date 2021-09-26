@@ -1,4 +1,4 @@
-import api from "../utils/api";
+import api from "../util/api";
 import {
   ADMIN_LOGIN_FAILED,
   ADMIN_LOGIN_REQUEST,
@@ -7,7 +7,7 @@ import {
   ADMIN_REGISTER_FAILED,
   ADMIN_REGISTER_REQUEST,
   ADMIN_REGISTER_SUCCESS,
-} from "../constants/types";
+} from "../constant/types";
 
 // ADMINISTRATORS LOGIN PROCESS
 export const login = (email, password) => async (dispatch) => {

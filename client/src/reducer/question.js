@@ -5,7 +5,7 @@ import {
   GET_QUESTION_FAILED,
   GET_QUESTION_REQUEST,
   GET_QUESTION_SUCCESS,
-} from "../constants/types";
+} from "../constant/types";
 
 export const createQuestionReducer = (state = {}, action) => {
   switch (action.type) {
