@@ -6,9 +6,15 @@ import { studentLoginReducer, studentRegisterReducer } from "./reducer/student";
 
 import { adminLoginReducer, adminRegisterReducer } from "./reducer/admin";
 
-import {} from "./reducer/subject";
+import { createSubjectReducer, getSubjectReducer } from "./reducer/subject";
 
-import {} from "./reducer/question";
+import { createQuestionReducer, getQuestionReducer } from "./reducer/question";
+
+import {
+  createCourseReducer,
+  getCourseReducer,
+  recommendCourseReducer,
+} from "./reducer/course";
 
 import {
   profileCreateReducer,
@@ -17,23 +23,29 @@ import {
 } from "./reducer/course";
 
 const reducer = combineReducers({
-  userLogin: userLoginReducer,
-  userRegister: userRegisterReducer,
+  // students reducers list
+  studentLogin: studentLoginReducer,
+  studentRegister: studentRegisterReducer,
 
+  // admin reducers list
   adminLogin: adminLoginReducer,
   adminRegister: adminRegisterReducer,
 
-  profileCreate: profileCreateReducer,
-  getAllProfiles: getAllProfilesReducer,
-  getProfile: getProfileReducer,
+  // questions reducer
+  createQuestion: createQuestionReducer,
+  getQuestion: getQuestionReducer,
 
-  academicsCreate: academicsCreateReducer,
-  getAllAcademics: getAllAcademicsReducer,
-  getAcademics: getAcademicsReducer,
+  // subjects reducer
+  createSubject: createSubjectReducer,
+  getSubject: getSubjectReducer,
+
+  // course reducer
+  createCourse: createCourseReducer,
+  getCourse: getCourseReducer,
 });
 
-const userInfoFromStorage = localStorage.getItem("userInfo")
-  ? JSON.parse(localStorage.getItem("userInfo"))
+const studentInfoFromStorage = localStorage.getItem("studentInfo")
+  ? JSON.parse(localStorage.getItem("studentInfo"))
   : null;
 
 const adminInfoFromStorage = localStorage.getItem("adminInfo")
@@ -41,7 +53,7 @@ const adminInfoFromStorage = localStorage.getItem("adminInfo")
   : null;
 
 const initialState = {
-  userLogin: { userInfo: userInfoFromStorage },
+  studentLogin: { studentInfo: studentInfoFromStorage },
   adminLogin: { adminInfo: adminInfoFromStorage },
 };
 

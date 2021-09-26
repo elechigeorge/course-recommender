@@ -1,39 +1,42 @@
 import api from "../utils/api";
 import {
-  CREATE_COURSE_REQUEST,
-  CREATE_COURSE_SUCCESS,
-  CREATE_COURSE_FAILED,
-  GET_COURSE_SUCCESS,
-  GET_COURSE_REQUEST,
-  GET_COURSE_FAILED,
+  CREATE_QUESTION_REQUEST,
+  CREATE_QUESTION_SUCCESS,
+  CREATE_QUESTION_FAILED,
+  GET_QUESTION_SUCCESS,
+  GET_QUESTION_REQUEST,
+  GET_QUESTION_FAILED,
 } from "../constant/types";
 
-import { logout } from "./admin";
+import { logout } from "./student";
 
-// DEVELOPER - GET ALL REGISTERED COURSES
-export const getCourse = () => async (dispatch, getState) => {
+// GET ALL QUESTION AS PER SUBJECT NAME
+export const getQuestion = (subjectId) => async (dispatch, getState) => {
   try {
-    dispatch({ type: GET_COURSE_REQUEST });
+    dispatch({ type: GET_QUESTION_REQUEST });
 
     const {
-      adminLogin: { adminInfo },
+      studentLogin: { studentInfo },
     } = getState();
 
     const config = {
       headers: {
-        Authorization: `Bearer ${adminInfo.token}`,
+        Authorization: `Bearer ${studentInfo.token}`,
+      },
+      params: {
+        subjectId: subjectId,
       },
     };
 
-    const { data } = await api.get("/courses", config);
+    const { data } = await api.get("/questions", config);
 
     dispatch({
-      type: GET_COURSE_SUCCESS,
+      type: GET_QUESTION_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: GET_COURSE_FAILED,
+      type: GET_QUESTION_FAILED,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -42,11 +45,11 @@ export const getCourse = () => async (dispatch, getState) => {
   }
 };
 
-// DEVELOPER - CREATE NEW COURSE PROCESS
-export const createCourse = (course) => async (dispatch, getState) => {
+// ADMINISTRATORS - CREATE NEW QUESTION PROCESS
+export const createQuestion = (question) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: CREATE_COURSE_REQUEST,
+      type: CREATE_QUESTION_REQUEST,
     });
 
     const {
@@ -59,7 +62,7 @@ export const createCourse = (course) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await api.post(`/question`, course, config);
+    const { data } = await api.post(`/question`, question, config);
 
     dispatch({
       type: CREATE_QUESTION_SUCCESS,
@@ -74,7 +77,7 @@ export const createCourse = (course) => async (dispatch, getState) => {
       dispatch(logout());
     }
     dispatch({
-      type: CREATE_COURSE_FAILED,
+      type: CREATE_QUESTION_FAILED,
       payload: message,
     });
   }
