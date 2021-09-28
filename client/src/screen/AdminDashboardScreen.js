@@ -12,11 +12,37 @@ function Dashboard() {
 
   return (
     <Fragment>
-      <h1 className="large text-dark">Admin Dashboard</h1>
+      <h1 className="large text-dark">Dashboard</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Welcome {adminInfo && adminInfo.name}
+        <i className="fas fa-user" /> Welcome, Professor Kadirat{" "}
+        {adminInfo && adminInfo.name}
       </p>
-      <Fragment></Fragment>
+      <div className="py-4">
+        <i>
+          Please add relevant courses, subject and questions for each subject
+        </i>
+      </div>
+      <Fragment>
+        <Tabs
+          defaultActiveKey="profile"
+          id="uncontrolled-tab-example"
+          className="text-dark"
+        >
+          <Tab eventKey="home" title="Add New Subject" className="text-dark">
+            <p className="lead">Something is here</p>
+          </Tab>
+          <Tab eventKey="leave" title="Add New Questions" className="text-dark">
+            question view goes here
+          </Tab>
+          <Tab
+            eventKey="directorates"
+            title="Add New Courses"
+            className="text-dark"
+          >
+            add courses here
+          </Tab>
+        </Tabs>
+      </Fragment>
     </Fragment>
   );
 }
