@@ -7,18 +7,16 @@ import { ListGroup, Button, Row, Col, Tabs, Tab, Table } from "react-bootstrap";
 function Dashboard() {
   const dispatch = useDispatch();
 
-  const studentLogin = useSelector((state) => state.studentLogin);
-  const { studentInfo } = studentLogin;
+  const adminLogin = useSelector((state) => state.adminLogin);
+  const { adminInfo } = adminLogin;
 
   return (
     <Fragment>
-      <h1 className="large text-dark">Dashboard</h1>
+      <h1 className="large text-dark">Admin Dashboard</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Welcome {userInfo && userInfo.name}
+        <i className="fas fa-user" /> Welcome {adminInfo && adminInfo.name}
       </p>
-      <Fragment>
-        <h3>Welcome to your Dashboard, Kingsley </h3>
-      </Fragment>
+      <Fragment></Fragment>
     </Fragment>
   );
 }

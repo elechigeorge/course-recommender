@@ -29,7 +29,7 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <Navbar.Brand href="/">
-            <span className="mx-3">EXAM LAB PRO</span>
+            <span className="">EXAM LAB PRO</span>
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

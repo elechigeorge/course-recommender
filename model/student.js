@@ -3,32 +3,31 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
 const StudentSchema = new mongoose.Schema({
-   name: {
-       type: String
-   },
-   email: {
-       type: String
-   },
-   password: {
-       type: String
-   },
-   date_of_birth: {
-       type: String
-   },
-   gender: {
-     type: String
-   },
-   state_of_origin: {
-     type: String
-   },
-   hasTakenExam: {
-       type: Boolean
-   },
-   subjects: [
-   ],
-   recommended_course: {
-       type: String
-   }
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+  },
+  password: {
+    type: String,
+  },
+  date_of_birth: {
+    type: String,
+  },
+  gender: {
+    type: String,
+  },
+  state_of_origin: {
+    type: String,
+  },
+  completedExams: {
+    type: Number,
+  },
+  subjects: [],
+  recommended_course: {
+    type: String,
+  },
 });
 
 StudentSchema.plugin(timestamp);

@@ -15,6 +15,12 @@ import StudentRegisterScreen from "./screen/StudentRegisterScreen";
 import AdminLoginScreen from "./screen/AdminLoginScreen";
 
 import AdminRegisterScreen from "./screen/AdminRegisterScreen";
+import StudentDashboardScreen from "./screen/StudentDashboardScreen";
+import AdminDashboardScreen from "./screen/AdminDashboardScreen";
+
+// school stuffs
+import NewExamination from "./screen/NewExaminationScreen";
+import ExaminationScreen from "./screen/ExaminationScreen";
 
 const App = () => {
   return (
@@ -32,6 +38,12 @@ const App = () => {
           <Route path="/about" component={AboutScreen} />
           <Route path="/help" component={HelpScreen} />
           <Route path="/faq" component={FAQScreen} />
+
+          <Route path="/student/dashboard" component={StudentDashboardScreen} />
+          <Route path="/admin/dashboard" component={AdminDashboardScreen} />
+
+          <Route path="/new-exam" component={NewExamination} />
+          <Route path={`exam/:subjectId}`} component={NewExamination} />
         </Container>
       </main>
     </Router>
