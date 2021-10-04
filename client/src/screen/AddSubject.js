@@ -1,25 +1,19 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import FloatingLabel from "react-floating-label-input";
 
 function AddSubject() {
   return (
-    <div>
+    <div className="d-grid gap-2">
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <FloatingLabel
-            id="example-3"
-            label="Add Subject Name"
-            onBlur={action("onBlur")}
-            onChange={action("onChange")}
-            onFocus={action("onFocus")}
-            value={value}
-          />
+        <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Label>Enter Subject Name</Form.Label>
+          <Form.Control type="text" placeholder="Subject Name" />
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <div className="d-grid gap-2">
+          <Button variant="dark" className="btn-block">
+            Submit New Subject
+          </Button>
+        </div>
       </Form>
     </div>
   );

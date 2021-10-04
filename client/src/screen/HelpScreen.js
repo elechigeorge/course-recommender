@@ -10,7 +10,9 @@ function HelpScreen() {
         <p>
           <i>write to us</i>
         </p>
-        <Button className="btn-dark btn-outline-gray">help@arris.edu.ng</Button>
+        <Button className="btn-dark btn-outline-gray">
+          help@examlab.edu.ng
+        </Button>
       </Jumbotron>
     </div>
   );

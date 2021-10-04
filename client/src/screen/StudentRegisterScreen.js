@@ -46,7 +46,7 @@ const StudentRegisterScreen = () => {
       }}
     >
       <FormContainer>
-        <h1 className="text-center">Student Register</h1>
+        <h1 className="text-center mt-5">Student Register</h1>
 
         {loading && <Loader />}
         {error && <Message variant="danger">{error}</Message>}

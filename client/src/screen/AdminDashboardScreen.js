@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { ListGroup, Button, Row, Col, Tabs, Tab, Table } from "react-bootstrap";
+import AddQuestion from "./AddQuestion";
+import AddCourse from "./AddCourse";
+import AddSubject from "./AddSubject";
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -24,22 +27,25 @@ function Dashboard() {
       </div>
       <Fragment>
         <Tabs
-          defaultActiveKey="profile"
+          defaultActiveKey="subject"
           id="uncontrolled-tab-example"
           className="text-dark"
         >
-          <Tab eventKey="home" title="Add New Subject" className="text-dark">
-            <p className="lead">Something is here</p>
-          </Tab>
-          <Tab eventKey="leave" title="Add New Questions" className="text-dark">
-            question view goes here
+          <Tab eventKey="subject" title="Add New Subject" className="text-dark">
+            <p className="lead">Add New Subject</p>
+            <AddSubject />
           </Tab>
           <Tab
-            eventKey="directorates"
-            title="Add New Courses"
+            eventKey="question"
+            title="Add New Questions"
             className="text-dark"
           >
-            add courses here
+            <p className="lead">Add New Question</p>
+            <AddQuestion />
+          </Tab>
+          <Tab eventKey="course" title="Add New Courses" className="text-dark">
+            <p className="lead">Add New Course</p>
+            <AddCourse />
           </Tab>
         </Tabs>
       </Fragment>

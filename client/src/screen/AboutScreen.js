@@ -4,7 +4,7 @@ function AboutScreen() {
   return (
     <div>
       <h3 className="large mt-3 text-dark lead">
-        About Registry Information System
+        About US | Course Recommendation System
       </h3>
       <hr />
       <p>

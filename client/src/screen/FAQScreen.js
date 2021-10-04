@@ -31,7 +31,7 @@ function FAQScreen() {
           </tr>
           <tr>
             <td>When was this software developed</td>
-            <td>21st May, 2021</td>
+            <td>2 October, 2021</td>
           </tr>
         </tbody>
       </Table>

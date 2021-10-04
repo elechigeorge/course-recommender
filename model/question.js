@@ -7,16 +7,13 @@ const QuestionSchema = new mongoose.Schema({
   },
   answer: {
     type: String,
+    default: "option-one",
   },
-  option_one: {
-    type: String,
-  },
-  option_two: {
-    type: String,
-  },
-  option_three: {
-    type: String,
-  },
+  options: [
+    { "option-one": String },
+    { "option-two": String },
+    { "option-three": String },
+  ],
 });
 
 QuestionSchema.plugin(timestamp);
