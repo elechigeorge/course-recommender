@@ -45,6 +45,7 @@ function Dashboard() {
           </Tab>
           <Tab eventKey="course" title="Add New Courses" className="text-dark">
             <p className="lead">Add New Course</p>
+
             <AddCourse />
           </Tab>
         </Tabs>

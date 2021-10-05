@@ -3,13 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { Form, Button, Container } from "react-bootstrap";
 import FormContainer from "../component/FormContainer";
+import Select from "react-select";
 
 function NewExamination() {
-  const [Subject, setSubject] = useState("");
+  const options = [
+    { value: "mathematics", label: "Mathematics" },
+    { value: "english", label: "English Language" },
+    { value: "physics", label: "Physics" },
+    { value: "chemistry", label: "Chemistry" },
+  ];
+  const [Subject, setSubject] = useState({});
   const dispatch = useDispatch();
 
   const studentLogin = useSelector((state) => state.studentLogin);
   const { studentInfo } = studentLogin;
+
+  const setValueToState = (Subject) => {
+    return setSubject(Subject);
+  };
 
   return (
     <FormContainer>
@@ -17,13 +28,15 @@ function NewExamination() {
 
       <div className="d-grid gap-2">
         <Form>
-          <Form.Select aria-label="Default select example">
-            <option>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </Form.Select>
-          <Link to={`/exam/:subjectId`} className="btn btn-dark btn-block my-3">
+          <Select
+            options={options}
+            onChange={setValueToState}
+            value={Subject}
+          />
+          <Link
+            to={`/exam/${Subject.value}`}
+            className="btn btn-dark btn-block my-3"
+          >
             Start Examination
           </Link>
         </Form>

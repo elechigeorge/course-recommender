@@ -1,41 +1,75 @@
 import React from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import Select from "react-select";
 
-function AddCourse() {
+const AddQuestion = () => {
+  const options = [
+    { value: "mathematics", label: "Mathematics" },
+    { value: "english", label: "English Language" },
+    { value: "physics", label: "Physics" },
+    { value: "chemistry", label: "Chemistry" },
+  ];
   return (
     <div className="d-grid gap-2 mb-5">
-      <Form>
+      <Form className="mb-5">
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Add Course Title</Form.Label>
+          <Form.Label>Course Title</Form.Label>
           <Form.Control type="text" placeholder="Enter Course Title" />
         </Form.Group>
-        <p className="lead">Add Subject Requirement </p>
-        <Row>
-          <Col>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Select Subject</Form.Label>
-              <select id="custom-select">
-                <option>Select Subject</option>
-                <option value="english">English Language</option>
-                <option value="mathematics">Mathematics</option>
-                <option value="literature">Literature</option>
-              </select>
-            </Form.Group>
-          </Col>
 
-          <Col>
+        {/* option one here */}
+        <Row>
+          <Col sm={2} md={2} lg={2}>
+            <Select options={options} />
+          </Col>
+          <Col sm={10} md={10} lg={10}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Required Score to Pass</Form.Label>
-              <Form.Control type="text" placeholder="Enter Grade " />
+              <Form.Control type="text" placeholder="Enter Expected Grade" />
             </Form.Group>
           </Col>
         </Row>
-        <Button variant="dark" type="submit">
-          Register Changes
-        </Button>
+        {/* option  two  */}
+        <Row>
+          <Col sm={2} md={2} lg={2}>
+            <Select options={options} />
+          </Col>
+          <Col sm={10} md={10} lg={10}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Control type="text" placeholder="Enter Expected Grade" />
+            </Form.Group>
+          </Col>
+        </Row>
+        {/* option three */}
+        <Row>
+          <Col sm={2} md={2} lg={2}>
+            <Select options={options} />
+          </Col>
+          <Col sm={10} md={10} lg={10}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Control type="text" placeholder="Enter Expected Grade" />
+            </Form.Group>
+          </Col>
+        </Row>
+
+        {/* option fourth */}
+        <Row>
+          <Col sm={2} md={2} lg={2}>
+            <Select options={options} />
+          </Col>
+          <Col sm={10} md={10} lg={10}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Control type="text" placeholder="Enter Expected Grade" />
+            </Form.Group>
+          </Col>
+        </Row>
+        <div className="d-grid gap-2">
+          <Button variant="dark" type="submit" className="btn-block">
+            Add New Course
+          </Button>
+        </div>
       </Form>
     </div>
   );
-}
+};
 
-export default AddCourse;
+export default AddQuestion;
