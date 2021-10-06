@@ -415,7 +415,12 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-express-validator@^6.12.1:
+express-async-handler@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/express-async-handler/-/express-async-handler-1.1.4.tgz#225a84908df63b35ae9df94b6f0f1af061266426"
+  integrity sha512-HdmbVF4V4w1q/iz++RV7bUxIeepTukWewiJGkoCKQMtvPF11MLTa7It9PRc/reysXXZSEyD4Pthchju+IUbMiQ==
+
+express-validator@^6.12.2:
   version "6.12.2"
   resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-6.12.2.tgz#0ee3e34338223ae6ed9a97532ff3687fd561db90"
   integrity sha512-UMVck7ZWrKH7eX75CRYk/pAc9jxZk8Ddsdkukw1R7LTWuQNiDaooz6nVfIdg33qZUHCuv2m2o+RS4pTMaLjGmA==
@@ -1111,11 +1116,6 @@ rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
-
-react-floating-label-input@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/react-floating-label-input/-/react-floating-label-input-4.3.2.tgz#b42a17b873b3dc6e2a90105b36392bc3f1506b63"
-  integrity sha512-YXu3TEy/5LM9BCp9+NI6jz3ICXQaJphWRsmi+QzxDKt7QbJUeCzeRwBDI8RkQQm7F/KP5sb6YteyQ1OB3oBXKQ==
 
 readdirp@~3.6.0:
   version "3.6.0"

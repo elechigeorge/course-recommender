@@ -1,19 +1,15 @@
-// get all subjects
-// GET /subject
-const getAllSubjects = async (req, res, next) => {
-  res.send("All Subjects");
-};
+import asyncHandler from "express-async-handler";
 
-// create a new subject
-// POST /subject/create
-const createSubject = async (req, res, next) => {
-  res.send("Performed all operations and subject created... ");
-};
+const createSubject = asyncHandler(async (req, res) => {
+  res.send("subject created");
+});
 
-// get subject by ID
-// GET /subject/:id
-const getSubjectById = async (req, res, next) => {
-  res.send("Single Subject gotted ");
-};
+const getAllSubject = asyncHandler(async (req, res) => {
+  res.send("subject getted");
+});
 
-export { getAllSubjects, createSubject, getSubjectById };
+const getSingleSubjectDetails = asyncHandler(async (req, res) => {
+  res.send("subject gotted by ID");
+});
+
+export { createSubject, getAllSubject, getSingleSubjectDetails };

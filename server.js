@@ -7,9 +7,11 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 // IMPORT ROUTE FILES
-import Subject from "./routes/subject";
-import Question from "./routes/question";
-import Course from "./routes/course";
+import Subject from "./routes/subject.js";
+import Question from "./routes/question.js";
+import Course from "./routes/course.js";
+import Student from "./routes/student.js";
+import Admin from "./routes/admin.js";
 
 // INITIALIZE EXPRESS SEVER
 const server = express();
@@ -29,6 +31,8 @@ mongoose
 server.use("/course", Course);
 server.use("/subject", Subject);
 server.use("/question", Question);
+server.use("/student", Student);
+server.use("/admin", Admin);
 
 // PRODUCTION ENVIRONMENT SETTING
 

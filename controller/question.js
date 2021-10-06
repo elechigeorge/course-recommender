@@ -1,13 +1,11 @@
-// get all questions by subject
-// GET /question/subjectId
-const getAllQuestionsBySubjectId = async (req, res, next) => {
-  res.send("All questions from the selected subject");
-};
+import asyncHandler from "express-async-handler";
 
-// create a new question
-// POST /question/subjectId
-const createNewQuestionBySubjectId = async (req, res, next) => {
-  res.send("Performed all operations and subject created... ");
-};
+const createQuestion = asyncHandler(async (req, res) => {
+  res.send("question created");
+});
 
-export { getAllQuestionsBySubjectId, createNewQuestionBySubjectId };
+const getQuestionsBySubject = asyncHandler(async (req, res) => {
+  res.send("question getted");
+});
+
+export { createQuestion, getQuestionsBySubject };

@@ -15,11 +15,11 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "express-validator": "^6.12.1",
+    "express-async-handler": "^1.1.4",
+    "express-validator": "^6.12.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.7",
-    "mongoose-timestamp": "^0.6.0",
-    "react-floating-label-input": "^4.3.2"
+    "mongoose-timestamp": "^0.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

@@ -1,14 +1,12 @@
 import express from "express";
 import {
-  getAllQuestionsBySubjectId,
-  createNewQuestionBySubjectId,
-} from "../controller/question";
+  createQuestion,
+  getQuestionsBySubject,
+} from "../controller/question.js";
+
 const router = express.Router();
 
 // ROUTES DEFINITION
-router
-  .route("/:subjectId")
-  .get(getAllQuestionsBySubjectId)
-  .post(createNewQuestionBySubjectId);
+router.route("/").get(getQuestionsBySubject).post(createQuestion);
 
 export default router;

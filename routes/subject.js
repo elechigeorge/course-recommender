@@ -1,14 +1,14 @@
 import express from "express";
 import {
   createSubject,
-  getSubjectById,
-  getAllSubjects,
-} from "../controller/subject";
+  getSingleSubjectDetails,
+  getAllSubject,
+} from "../controller/subject.js";
 const router = express.Router();
 
 // ROUTES DEFINITION
-router.route("/").get(getAllSubjects).post(createSubject);
+router.route("/").get(getAllSubject).post(createSubject);
 
-router.route("/:id").get(getSubjectById);
+router.route("/:subjectName").get(getSingleSubjectDetails);
 
 export default router;
