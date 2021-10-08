@@ -25,7 +25,7 @@ export const getSubject = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await api.get("/subjects", config);
+    const { data } = await api.get("/subject", config);
 
     dispatch({
       type: GET_SUBJECT_SUCCESS,
@@ -59,7 +59,7 @@ export const createSubject = (subject) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await api.post(`/subject`, question, config);
+    const { data } = await api.post(`/subject`, subject, config);
 
     dispatch({
       type: CREATE_SUBJECT_SUCCESS,

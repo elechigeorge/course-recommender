@@ -15,7 +15,7 @@ const StudentRegisterScreen = () => {
   const [gender, setGender] = useState("");
   const [date_of_birth, setDateOfBirth] = useState("");
   const [password, setPassword] = useState("");
-  const [state_of_origin, setStateOfOrigin] = useState(false);
+  const [state_of_origin, setStateOfOrigin] = useState("");
 
   const [message, setMessage] = useState(null);
 
@@ -31,7 +31,7 @@ const StudentRegisterScreen = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
-      register(name, email, gender, date_of_birth, state_of_origin, password)
+      register(name, email, password, date_of_birth, gender, state_of_origin)
     );
   };
 
@@ -97,7 +97,7 @@ const StudentRegisterScreen = () => {
             <Form.Control
               type="text"
               placeholder="Enter Your State of Origin"
-              value={password}
+              value={state_of_origin}
               onChange={(e) => setStateOfOrigin(e.target.value)}
             ></Form.Control>
           </Form.Group>

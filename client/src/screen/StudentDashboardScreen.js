@@ -11,6 +11,10 @@ function Dashboard() {
   const studentLogin = useSelector((state) => state.studentLogin);
   const { studentInfo } = studentLogin;
 
+  if (!studentInfo) {
+    return <Redirect to="/student/login" />;
+  }
+
   return (
     <Fragment>
       <Fragment>

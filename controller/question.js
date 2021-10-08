@@ -1,11 +1,69 @@
 import asyncHandler from "express-async-handler";
+import Subject from "../model/subject.js";
+import Question from "../model/question.js";
+import checkObjectId from "../middleware/checkObjectId.js";
 
 const createQuestion = asyncHandler(async (req, res) => {
-  res.send("question created");
+  // grab the subject ID
+  const sid = checkObjectId(req.params.id);
+  // extract the request body
+  const { question, answer, option_one, option_two, option_three } = req.body;
+
+  // construct the question object
+  const newQuestion = {
+    subject: req.params.id,
+    question: question,
+    answer,
+    options: {
+      option_one,
+      option_two,
+      option_three,
+    },
+  };
+
+  try {
+    // create a new instance of the questions
+    const questions = await Question.create(newQuestion);
+
+    // grab subject
+    const subj = await Subject.findById(req.params.id);
+
+    // check for subject
+
+    // check creation process circle
+    if (questions && subj) {
+      subj.questions.unshift(questions);
+      console.log(subj);
+      res.status(201).json(questions);
+    } else {
+      res.status(400).json({ error: "Bad Request " });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Server Error" });
+  }
 });
 
 const getQuestionsBySubject = asyncHandler(async (req, res) => {
-  res.send("question getted");
+  // grab the subject ID
+  const sid = req.params.id;
+  try {
+    const questions = await Question.find({
+      subject: sid,
+    })
+      .populate("subject")
+      .sort("1");
+
+    if (!questions) {
+      return res
+        .status(400)
+        .json({ msg: "There are no questions for this subject" });
+    }
+
+    res.json(questions);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
 });
 
 export { createQuestion, getQuestionsBySubject };

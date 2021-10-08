@@ -7,6 +7,6 @@ import {
 const router = express.Router();
 
 // ROUTES DEFINITION
-router.route("/").get(getQuestionsBySubject).post(createQuestion);
+router.route("/:id").get(getQuestionsBySubject).post(createQuestion);
 
 export default router;

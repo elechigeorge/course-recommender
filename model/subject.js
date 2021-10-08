@@ -5,13 +5,7 @@ const SubjectSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  questions: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Question",
-    },
-  ],
-  success_score: {
+  grade: {
     type: String,
   },
 });

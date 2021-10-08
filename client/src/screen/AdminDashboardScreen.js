@@ -13,12 +13,16 @@ function Dashboard() {
   const adminLogin = useSelector((state) => state.adminLogin);
   const { adminInfo } = adminLogin;
 
+  if (!adminInfo) {
+    return <Redirect to="/admin/login" />;
+  }
+
   return (
     <Fragment>
       <h1 className="large text-dark">Dashboard</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Welcome, Professor Kadirat{" "}
-        {adminInfo && adminInfo.name}
+        <i className="fas fa-user" /> Welcome,{" "}
+        {adminInfo && adminInfo._doc.name}
       </p>
       <div className="py-4">
         <i>

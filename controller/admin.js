@@ -10,14 +10,13 @@ const authAdmin = asyncHandler(async (req, res) => {
 
   const admin = await Admin.findOne({ email });
 
-  if (investor && (await investor.matchPassword(password))) {
+  if (admin && (await admin.matchPassword(password))) {
     res.json({
-      token: generateToken(investor._id),
-      ...investor,
+      token: generateToken(admin._id),
+      ...admin,
     });
   } else {
-    res.status(401);
-    throw new Error("Invalid Credentials");
+    res.status(401).json("Unauthorized - Invalid Credentials");
   }
 });
 
@@ -30,8 +29,8 @@ const registerAdmin = asyncHandler(async (req, res) => {
   const adminExists = await Admin.findOne({ email });
 
   if (adminExists) {
-    res.status(400);
-    throw new Error("That Email is Taken");
+    res.status(400).json({ error: "That Email is Taken" });
+    return;
   }
 
   const admin = await Admin.create({
@@ -42,12 +41,11 @@ const registerAdmin = asyncHandler(async (req, res) => {
 
   if (admin) {
     res.status(201).json({
-      token: generateToken(investor._id),
+      token: generateToken(admin._id),
       ...admin,
     });
   } else {
-    res.status(400);
-    throw new Error("Invalid user data");
+    res.status(400).json({ error: "Invalid user data" });
   }
 });
 

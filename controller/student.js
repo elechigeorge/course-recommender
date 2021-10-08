@@ -13,7 +13,12 @@ const authStudent = asyncHandler(async (req, res) => {
   if (student && (await student.matchPassword(password))) {
     res.json({
       token: generateToken(student._id),
-      ...student,
+      name: student.name,
+      emial: student.email,
+      password: student.password,
+      date_of_birth: student.date_of_birth,
+      gender: student.gender,
+      state_of_origin: student.state_of_origin,
     });
   } else {
     res.status(401).json({ error: "Invalid Credientials" });
@@ -26,6 +31,8 @@ const authStudent = asyncHandler(async (req, res) => {
 const registerStudent = asyncHandler(async (req, res) => {
   const { email } = req.body;
 
+  console.log(req.body);
+
   const studentExists = await Student.findOne({ email });
 
   if (studentExists) {
@@ -35,17 +42,22 @@ const registerStudent = asyncHandler(async (req, res) => {
 
   const student = await Student.create({
     name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
     date_of_birth: req.body.date_of_birth,
     gender: req.body.gender,
     state_of_origin: req.body.state_of_origin,
-    email: req.body.email,
-    password: req.body.password,
   });
 
   if (student) {
     res.status(201).json({
       token: generateToken(student._id),
-      ...student,
+      name: student.name,
+      email: student.email,
+      password: student.password,
+      date_of_birth: student.date_of_birth,
+      gender: student.gender,
+      state_of_origin: student.state_of_origin,
     });
   } else {
     res.status(400);

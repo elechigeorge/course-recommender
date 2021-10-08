@@ -3,7 +3,7 @@ import store from "../store";
 import { STUDENT_LOGOUT } from "../constant/types";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "http://localhost:4000",
   headers: {
     "Content-Type": "application/json",
   },

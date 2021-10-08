@@ -23,7 +23,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await api.post(
-      "/account/login",
+      "/student/login",
       { email, password },
       config
     );
@@ -56,7 +56,7 @@ export const logout = () => (dispatch) => {
 
 // STUDENT REGISTRATION PROCESS
 export const register =
-  (name, gender, date_of_birth, state_of_origin, email, password) =>
+  (name, email, password, date_of_birth, gender, state_of_origin) =>
   async (dispatch) => {
     try {
       dispatch({
@@ -70,14 +70,14 @@ export const register =
       };
 
       const { data } = await api.post(
-        "/account",
+        "/student",
         {
           name,
-          gender,
-          date_of_birth,
-          state_of_origin,
           email,
           password,
+          date_of_birth,
+          gender,
+          state_of_origin,
         },
         config
       );

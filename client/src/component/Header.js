@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 // import { LinkContainer } from 'react-router-bootstrap'
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 
 import { logout } from "../action/student";
 import { logout as log } from "../action/admin";
@@ -33,11 +33,33 @@ const Header = () => {
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
+          <Navbar.Collapse id="basic-navbar-nav justify-content-end">
+            <Nav className="justify-content-end ">
               {studentInfo || adminInfo ? (
                 <Fragment>
-                  <Nav.Link onClick={logoutAdmin}>Logout</Nav.Link>
+                  <Nav>
+                    <NavDropdown
+                      id="nav-dropdown-dark-example"
+                      title="Signed In"
+                    >
+                      {adminInfo._doc.isAdmin && (
+                        <NavDropdown.Item href="#action/3.1">
+                          View Questions
+                        </NavDropdown.Item>
+                      )}
+
+                      <NavDropdown.Item href="#action/3.2">
+                        View Subjects
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.3">
+                        View Courses
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item onClick={logoutAdmin}>
+                        Sign Out
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav>
                 </Fragment>
               ) : (
                 <Fragment>
