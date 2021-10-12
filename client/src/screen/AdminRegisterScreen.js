@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,7 +40,12 @@ const RegisterScreen = () => {
       <FormContainer>
         <h1 className="text-center">Register an account </h1>
 
-        {error && <Message variant="danger">{error}</Message>}
+        {error && (
+          <Message variant="danger">
+            Error: check your credentials again and confirm you have a working
+            internet
+          </Message>
+        )}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name">

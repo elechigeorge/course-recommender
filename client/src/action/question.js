@@ -19,16 +19,20 @@ export const getQuestion = (subjectId) => async (dispatch, getState) => {
       studentLogin: { studentInfo },
     } = getState();
 
+    const {
+      adminLogin: { adminInfo },
+    } = getState();
+
     const config = {
       headers: {
-        Authorization: `Bearer ${studentInfo.token}`,
+        Authorization: `Bearer ${studentInfo.token || adminInfo.token}`,
       },
       params: {
         subjectId: subjectId,
       },
     };
 
-    const { data } = await api.get("/questions", config);
+    const { data } = await api.get("/question", config);
 
     dispatch({
       type: GET_QUESTION_SUCCESS,
@@ -46,7 +50,7 @@ export const getQuestion = (subjectId) => async (dispatch, getState) => {
 };
 
 // ADMINISTRATORS - CREATE NEW QUESTION PROCESS
-export const createQuestion = (question) => async (dispatch, getState) => {
+export const makeQuestion = (question) => async (dispatch, getState) => {
   try {
     dispatch({
       type: CREATE_QUESTION_REQUEST,
@@ -62,7 +66,11 @@ export const createQuestion = (question) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await api.post(`/question`, question, config);
+    const { data } = await api.post(
+      `/question/${question.subject}`,
+      question,
+      config
+    );
 
     dispatch({
       type: CREATE_QUESTION_SUCCESS,

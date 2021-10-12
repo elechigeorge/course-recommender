@@ -42,18 +42,28 @@ const Header = () => {
                       id="nav-dropdown-dark-example"
                       title="Signed In"
                     >
-                      {adminInfo._doc.isAdmin && (
-                        <NavDropdown.Item href="#action/3.1">
-                          View Questions
+                      {adminInfo && (
+                        <NavDropdown.Item href="/admin/dashboard">
+                          Dashboard
                         </NavDropdown.Item>
                       )}
 
-                      <NavDropdown.Item href="#action/3.2">
-                        View Subjects
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
-                        View Courses
-                      </NavDropdown.Item>
+                      {studentInfo && (
+                        <NavDropdown.Item href="/student/dashboard">
+                          Dashboard
+                        </NavDropdown.Item>
+                      )}
+                      {adminInfo && (
+                        <NavDropdown.Item href="/subject/list">
+                          View Subjects
+                        </NavDropdown.Item>
+                      )}
+
+                      {adminInfo && (
+                        <NavDropdown.Item href="/course/list">
+                          View Courses
+                        </NavDropdown.Item>
+                      )}
                       <NavDropdown.Divider />
                       <NavDropdown.Item onClick={logoutAdmin}>
                         Sign Out

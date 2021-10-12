@@ -1,22 +1,33 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { createSubject } from "../action/subject.js";
 import Message from "../component/Message";
+import Loader from "../component/Loader";
 
 const AddSubject = () => {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
 
+  const dispatch = useDispatch();
+
   // grade subject state from redux
   const newSubject = useSelector((state) => state.createSubject);
-  const { loading, error, success } = newSubject;
+  const { loading, error, subject } = newSubject;
 
   // submit new subject
-  const submitHandler = () => {};
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(createSubject({ name, grade }));
+    setGrade("");
+    setName("");
+  };
 
   return (
     <div className="d-grid gap-2">
+      {error && <Message variant="danger">{error}</Message>}
+      {subject && <Message variant="success">Subject Created</Message>}
+      {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="formGroupEmail">
           <Form.Label>Enter Subject Name</Form.Label>

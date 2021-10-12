@@ -20,7 +20,7 @@ export const createSubjectReducer = (state = {}, action) => {
   }
 };
 
-export const getSubjectReducer = (state = {}, action) => {
+export const getSubjectReducer = (state = [], action) => {
   switch (action.type) {
     case GET_SUBJECT_REQUEST:
       return { loading: true };

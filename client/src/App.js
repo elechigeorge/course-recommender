@@ -22,6 +22,10 @@ import AdminDashboardScreen from "./screen/AdminDashboardScreen";
 import NewExamination from "./screen/NewExaminationScreen";
 import ExaminationScreen from "./screen/ExaminationScreen";
 
+// other views
+import ViewCourses from "./screen/ViewCourses";
+import ViewSubjects from "./screen/ViewSubjects";
+
 const App = () => {
   return (
     <Router>
@@ -44,6 +48,9 @@ const App = () => {
 
           <Route path="/new-exam" component={NewExamination} />
           <Route path={`exam/:subjectId}`} component={NewExamination} />
+
+          <Route path="/subject/list" component={ViewSubjects} />
+          <Route path="/course/list" component={ViewCourses} />
         </Container>
       </main>
     </Router>

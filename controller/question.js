@@ -4,10 +4,9 @@ import Question from "../model/question.js";
 import checkObjectId from "../middleware/checkObjectId.js";
 
 const createQuestion = asyncHandler(async (req, res) => {
-  // grab the subject ID
-  const sid = checkObjectId(req.params.id);
   // extract the request body
-  const { question, answer, option_one, option_two, option_three } = req.body;
+  const { subject, question, answer, option_one, option_two, option_three } =
+    req.body;
 
   // construct the question object
   const newQuestion = {
@@ -25,15 +24,8 @@ const createQuestion = asyncHandler(async (req, res) => {
     // create a new instance of the questions
     const questions = await Question.create(newQuestion);
 
-    // grab subject
-    const subj = await Subject.findById(req.params.id);
-
-    // check for subject
-
     // check creation process circle
-    if (questions && subj) {
-      subj.questions.unshift(questions);
-      console.log(subj);
+    if (questions) {
       res.status(201).json(questions);
     } else {
       res.status(400).json({ error: "Bad Request " });

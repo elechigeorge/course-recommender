@@ -1,13 +1,10 @@
-import React, { useEffect, Fragment } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { Fragment } from "react";
+import { useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import { ListGroup, Button, Row, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import ExamDetail from "../component/ExamDetails";
 
 function Dashboard() {
-  const dispatch = useDispatch();
-
   const studentLogin = useSelector((state) => state.studentLogin);
   const { studentInfo } = studentLogin;
 

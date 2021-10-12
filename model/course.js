@@ -2,15 +2,33 @@ import timestamp from "mongoose-timestamp";
 import mongoose from "mongoose";
 
 const CourseSchema = new mongoose.Schema({
-  name: {
+  course_name: {
     type: String,
   },
-  subject_requirements: [
-    { first_subject: String, grade: Number },
-    { second_subject: String, grade: Number },
-    { third_subject: String, grade: Number },
-    { fourth_subject: String, grade: Number },
-  ],
+  first_subject: {
+    subject_name: String,
+    grade: String,
+  },
+  second_subject: {
+    subject_name: String,
+    grade: String,
+  },
+  third_subject: {
+    subject_name: String,
+    grade: String,
+  },
+  fourth_subject: {
+    subject_name: String,
+    grade: String,
+  },
+  fifth_subject: {
+    subject_name: String,
+    grade: String,
+  },
+  sixth_subject: {
+    subject_name: String,
+    grade: String,
+  },
 });
 
 CourseSchema.plugin(timestamp);

@@ -11,7 +11,7 @@ import {
 import { logout } from "./admin";
 
 // DEVELOPER - GET ALL REGISTERED COURSES
-export const getCourse = () => async (dispatch, getState) => {
+export const fetchCourse = () => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_COURSE_REQUEST });
 
@@ -19,13 +19,17 @@ export const getCourse = () => async (dispatch, getState) => {
       adminLogin: { adminInfo },
     } = getState();
 
+    const {
+      studentLogin: { studentInfo },
+    } = getState();
+
     const config = {
       headers: {
-        Authorization: `Bearer ${adminInfo.token}`,
+        Authorization: `Bearer ${adminInfo.token || studentInfo.token}`,
       },
     };
 
-    const { data } = await api.get("/courses", config);
+    const { data } = await api.get("/course", config);
 
     dispatch({
       type: GET_COURSE_SUCCESS,
@@ -43,7 +47,7 @@ export const getCourse = () => async (dispatch, getState) => {
 };
 
 // DEVELOPER - CREATE NEW COURSE PROCESS
-export const createCourse = (course) => async (dispatch, getState) => {
+export const makeCourse = (course) => async (dispatch, getState) => {
   try {
     dispatch({
       type: CREATE_COURSE_REQUEST,
@@ -59,10 +63,10 @@ export const createCourse = (course) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await api.post(`/question`, course, config);
+    const { data } = await api.post(`/course`, course, config);
 
     dispatch({
-      type: CREATE_QUESTION_SUCCESS,
+      type: CREATE_COURSE_SUCCESS,
       payload: data,
     });
   } catch (error) {

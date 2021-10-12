@@ -1,6 +1,4 @@
-import api from "../util/api";
-
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,8 +14,6 @@ const StudentRegisterScreen = () => {
   const [date_of_birth, setDateOfBirth] = useState("");
   const [password, setPassword] = useState("");
   const [state_of_origin, setStateOfOrigin] = useState("");
-
-  const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -49,7 +45,12 @@ const StudentRegisterScreen = () => {
         <h1 className="text-center mt-5">Student Register</h1>
 
         {loading && <Loader />}
-        {error && <Message variant="danger">{error}</Message>}
+        {error && (
+          <Message variant="danger">
+            Error: check your credentials again and confirm you have a working
+            internet
+          </Message>
+        )}
 
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name">

@@ -10,17 +10,7 @@ import { createSubjectReducer, getSubjectReducer } from "./reducer/subject";
 
 import { createQuestionReducer, getQuestionReducer } from "./reducer/question";
 
-import {
-  createCourseReducer,
-  getCourseReducer,
-  recommendCourseReducer,
-} from "./reducer/course";
-
-import {
-  profileCreateReducer,
-  getAllProfilesReducer,
-  getProfileReducer,
-} from "./reducer/course";
+import { createCourseReducer, getCourseReducer } from "./reducer/course";
 
 const reducer = combineReducers({
   // students reducers list

@@ -1,15 +1,12 @@
-import React, { useEffect, Fragment } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import { ListGroup, Button, Row, Col, Tabs, Tab, Table } from "react-bootstrap";
+import React, { Fragment } from "react";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { Tabs, Tab } from "react-bootstrap";
 import AddQuestion from "./AddQuestion";
 import AddCourse from "./AddCourse";
 import AddSubject from "./AddSubject";
 
 function Dashboard() {
-  const dispatch = useDispatch();
-
   const adminLogin = useSelector((state) => state.adminLogin);
   const { adminInfo } = adminLogin;
 

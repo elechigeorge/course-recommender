@@ -11,9 +11,13 @@ import {
 import { logout } from "./admin";
 
 // FETCH STORED SUBJECTS
-export const getSubject = () => async (dispatch, getState) => {
+export const fetchSubjects = () => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_SUBJECT_REQUEST });
+
+    const {
+      adminLogin: { adminInfo },
+    } = getState();
 
     const {
       studentLogin: { studentInfo },
@@ -21,7 +25,7 @@ export const getSubject = () => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        Authorization: `Bearer ${studentInfo.token}`,
+        Authorization: `Bearer ${adminInfo.token || studentInfo.token}`,
       },
     };
 

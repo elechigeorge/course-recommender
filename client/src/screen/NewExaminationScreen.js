@@ -1,7 +1,7 @@
-import React, { useEffect, Fragment, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import { Form, Button, Container } from "react-bootstrap";
+import React, { useState } from "react";
+// import { useSelector } from "react-redux";  // un comment when you need
+import { Link } from "react-router-dom";
+import { Form } from "react-bootstrap";
 import FormContainer from "../component/FormContainer";
 import Select from "react-select";
 
@@ -13,10 +13,10 @@ function NewExamination() {
     { value: "chemistry", label: "Chemistry" },
   ];
   const [Subject, setSubject] = useState({});
-  const dispatch = useDispatch();
 
-  const studentLogin = useSelector((state) => state.studentLogin);
-  const { studentInfo } = studentLogin;
+  // un comment when you need to use
+  // const studentLogin = useSelector((state) => state.studentLogin);
+  // const { studentInfo } = studentLogin;
 
   const setValueToState = (Subject) => {
     return setSubject(Subject);
