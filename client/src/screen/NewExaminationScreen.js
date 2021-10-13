@@ -1,25 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { useSelector } from "react-redux";  // un comment when you need
 import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import FormContainer from "../component/FormContainer";
+import { fetchSubjects } from "../action/subject";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 
-function NewExamination() {
-  const options = [
-    { value: "mathematics", label: "Mathematics" },
-    { value: "english", label: "English Language" },
-    { value: "physics", label: "Physics" },
-    { value: "chemistry", label: "Chemistry" },
-  ];
-  const [Subject, setSubject] = useState({});
+const NewExamination = () => {
+  const [selectedId, setSelectedId] = useState({});
+
+  // dispatch constructor
+  const dispatch = useDispatch();
+
+  // grabs subject from database when view loads
+  useEffect(() => {
+    dispatch(fetchSubjects());
+  }, [0]);
+
+  // grab subject list from redux state
+  const getSubject = useSelector((state) => state.getSubject);
+  const { subject: subj } = getSubject;
+
+  // loop over the subjects list from redux and set to options
+  let options;
+  if (subj) {
+    options = subj.map((option) => ({
+      value: option.name,
+      label: option.name,
+      _id: option._id,
+    }));
+  }
 
   // un comment when you need to use
   // const studentLogin = useSelector((state) => state.studentLogin);
   // const { studentInfo } = studentLogin;
 
-  const setValueToState = (Subject) => {
-    return setSubject(Subject);
+  const setValueToState = (selectedId) => {
+    return setSelectedId(selectedId);
   };
 
   return (
@@ -31,10 +49,10 @@ function NewExamination() {
           <Select
             options={options}
             onChange={setValueToState}
-            value={Subject}
+            value={selectedId}
           />
           <Link
-            to={`/exam/${Subject.value}`}
+            to={`/exam/${selectedId._id}`}
             className="btn btn-dark btn-block my-3"
           >
             Start Examination
@@ -43,6 +61,6 @@ function NewExamination() {
       </div>
     </FormContainer>
   );
-}
+};
 
 export default NewExamination;

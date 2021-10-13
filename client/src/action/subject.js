@@ -15,21 +15,7 @@ export const fetchSubjects = () => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_SUBJECT_REQUEST });
 
-    const {
-      adminLogin: { adminInfo },
-    } = getState();
-
-    const {
-      studentLogin: { studentInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${adminInfo.token || studentInfo.token}`,
-      },
-    };
-
-    const { data } = await api.get("/subject", config);
+    const { data } = await api.get("/subject");
 
     dispatch({
       type: GET_SUBJECT_SUCCESS,

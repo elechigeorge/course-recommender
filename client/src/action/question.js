@@ -11,28 +11,11 @@ import {
 import { logout } from "./student";
 
 // GET ALL QUESTION AS PER SUBJECT NAME
-export const getQuestion = (subjectId) => async (dispatch, getState) => {
+export const fetchQuestion = (subjectId) => async (dispatch) => {
   try {
     dispatch({ type: GET_QUESTION_REQUEST });
 
-    const {
-      studentLogin: { studentInfo },
-    } = getState();
-
-    const {
-      adminLogin: { adminInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${studentInfo.token || adminInfo.token}`,
-      },
-      params: {
-        subjectId: subjectId,
-      },
-    };
-
-    const { data } = await api.get("/question", config);
+    const { data } = await api.get(`/question/${subjectId}`);
 
     dispatch({
       type: GET_QUESTION_SUCCESS,

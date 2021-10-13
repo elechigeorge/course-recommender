@@ -15,21 +15,7 @@ export const fetchCourse = () => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_COURSE_REQUEST });
 
-    const {
-      adminLogin: { adminInfo },
-    } = getState();
-
-    const {
-      studentLogin: { studentInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${adminInfo.token || studentInfo.token}`,
-      },
-    };
-
-    const { data } = await api.get("/course", config);
+    const { data } = await api.get("/course");
 
     dispatch({
       type: GET_COURSE_SUCCESS,

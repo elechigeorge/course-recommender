@@ -47,7 +47,7 @@ const App = () => {
           <Route path="/admin/dashboard" component={AdminDashboardScreen} />
 
           <Route path="/new-exam" component={NewExamination} />
-          <Route path={`exam/:subjectId}`} component={NewExamination} />
+          <Route path={`/exam/:subjectId`} component={ExaminationScreen} />
 
           <Route path="/subject/list" component={ViewSubjects} />
           <Route path="/course/list" component={ViewCourses} />
