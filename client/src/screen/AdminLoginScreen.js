@@ -35,7 +35,7 @@ const AdminLoginScreen = () => {
       }}
     >
       <FormContainer>
-        <h1 class="text-center">Admin Login</h1>
+        <h1 className="text-primary text-uppercase">Welcome back | Admin</h1>
         {error && (
           <Message variant="danger">
             Invalid User Data / Check you have a stable network connection
@@ -62,10 +62,11 @@ const AdminLoginScreen = () => {
               onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
-
-          <Button type="submit" variant="dark" className="btn-block mt-3">
-            Login
-          </Button>
+          <div className="d-grid gap-2">
+            <Button type="submit" variant="primary" className="btn-block mt-3">
+              Login
+            </Button>
+          </div>
         </Form>
 
         <Row className="py-3">

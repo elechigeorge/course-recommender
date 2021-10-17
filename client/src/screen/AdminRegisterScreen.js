@@ -38,7 +38,9 @@ const RegisterScreen = () => {
       }}
     >
       <FormContainer>
-        <h1 className="text-center">Register an account </h1>
+        <h1 className="text-primary text-uppercase">
+          Admin | Register an account{" "}
+        </h1>
 
         {error && (
           <Message variant="danger">
@@ -77,10 +79,11 @@ const RegisterScreen = () => {
               onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
-
-          <Button type="submit" variant="dark" className="btn-block mt-3">
-            Register
-          </Button>
+          <div className="d-grid gap-2">
+            <Button type="submit" variant="primary" className="btn-block mt-3">
+              Register
+            </Button>
+          </div>
         </Form>
 
         <Row className="py-3">

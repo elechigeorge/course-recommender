@@ -26,13 +26,13 @@ function HomeScreen() {
         </Col>
         <Col md={6} sm={12} lg={6}>
           <div className="text-center-sm">
-            <h1>WELCOME TO EXAM LAP</h1>
+            <h1 className="text-primary">CAREER RECOMMENDATION SYSTEM</h1>
             <p>
               Exam Lab is a machine learning examination system that recommend
               university courses to aspiring university and polytechnics student
               based on their academic performance with each subjects{" "}
             </p>
-            <a href="/student/register" className="btn btn-dark btn-lg">
+            <a href="/student/register" className="btn btn-primary btn-lg">
               Get Started
             </a>
           </div>

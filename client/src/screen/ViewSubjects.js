@@ -43,7 +43,9 @@ const ViewSubjects = () => {
                       <th>{subject.grade}</th>
 
                       <th>
-                        <Button variant="danger">Delete</Button>
+                        <Button variant="danger" disabled>
+                          Delete
+                        </Button>
                       </th>
                     </tr>
                   </tbody>

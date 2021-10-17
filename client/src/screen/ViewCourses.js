@@ -46,7 +46,9 @@ const ViewCourses = () => {
                       <th>{course.third_subject.subject_name}</th>
                       <th>{course.fourth_subject.subject_name}</th>
                       <th>
-                        <Button variant="danger">Delete</Button>
+                        <Button variant="danger" disabled>
+                          Delete
+                        </Button>
                       </th>
                     </tr>
                   </tbody>

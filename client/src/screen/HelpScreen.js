@@ -10,7 +10,7 @@ function HelpScreen() {
         <p>
           <i>write to us</i>
         </p>
-        <Button className="btn-dark btn-outline-gray">
+        <Button className="btn-primary btn-outline-gray">
           help@examlab.edu.ng
         </Button>
       </Jumbotron>

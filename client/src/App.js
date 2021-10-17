@@ -25,6 +25,7 @@ import ExaminationScreen from "./screen/ExaminationScreen";
 // other views
 import ViewCourses from "./screen/ViewCourses";
 import ViewSubjects from "./screen/ViewSubjects";
+import RecommendationView from "./screen/RecommendationView";
 
 const App = () => {
   return (
@@ -51,6 +52,8 @@ const App = () => {
 
           <Route path="/subject/list" component={ViewSubjects} />
           <Route path="/course/list" component={ViewCourses} />
+
+          <Route path="/recommendation" component={RecommendationView} />
         </Container>
       </main>
     </Router>

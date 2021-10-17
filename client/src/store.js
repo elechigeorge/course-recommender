@@ -10,6 +10,8 @@ import { createSubjectReducer, getSubjectReducer } from "./reducer/subject";
 
 import { createQuestionReducer, getQuestionReducer } from "./reducer/question";
 
+import { registerExamReducer, fetchExamsReducer } from "./reducer/exam";
+
 import { createCourseReducer, getCourseReducer } from "./reducer/course";
 
 const reducer = combineReducers({
@@ -32,6 +34,10 @@ const reducer = combineReducers({
   // course reducer
   createCourse: createCourseReducer,
   getCourse: getCourseReducer,
+
+  // exam reducer
+  registerExam: registerExamReducer,
+  fetchExams: fetchExamsReducer,
 });
 
 const studentInfoFromStorage = localStorage.getItem("studentInfo")

@@ -12,6 +12,7 @@ import Question from "./routes/question.js";
 import Course from "./routes/course.js";
 import Student from "./routes/student.js";
 import Admin from "./routes/admin.js";
+import Exam from "./routes/exam.js";
 
 // INITIALIZE EXPRESS SEVER
 const server = express();
@@ -33,6 +34,7 @@ server.use("/subject", Subject);
 server.use("/question", Question);
 server.use("/student", Student);
 server.use("/admin", Admin);
+server.use("/exam", Exam);
 
 // PRODUCTION ENVIRONMENT SETTING
 

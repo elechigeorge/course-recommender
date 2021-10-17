@@ -142,7 +142,7 @@ const AddQuestion = () => {
           </Col>
         </Row>
         <div className="d-grid gap-2">
-          <Button variant="dark" type="submit" className="btn-block">
+          <Button variant="primary" type="submit" className="btn-block">
             Add New Question
           </Button>
         </div>

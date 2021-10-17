@@ -89,7 +89,7 @@ const AddCourse = () => {
       {error && <Message variant="danger">{error}</Message>}
       {success && <Message variant="success">Course Created</Message>}
       {loading && <Loader />}
-      <p className="lead bg-warning light-text">
+      <p className="lead bg-primary text-light text-uppercase p-2">
         Please Add Grade, before adding subject requirement
       </p>
       <Form className="mb-5" onSubmit={submitHandler}>
@@ -203,7 +203,7 @@ const AddCourse = () => {
           </Col>
         </Row>
         <div className="d-grid gap-2">
-          <Button variant="dark" type="submit" className="btn-block">
+          <Button variant="primary" type="submit" className="btn-block">
             Add New Course
           </Button>
         </div>

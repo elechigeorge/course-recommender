@@ -1,0 +1,8 @@
+.scroll {
+  background-color: blue;
+  width: 100% !important;
+}
+
+.exam::-webkit-scrollbar {
+  display: none !important;
+}

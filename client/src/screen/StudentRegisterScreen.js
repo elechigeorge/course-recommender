@@ -42,7 +42,9 @@ const StudentRegisterScreen = () => {
       }}
     >
       <FormContainer>
-        <h1 className="text-center mt-5">Student Register</h1>
+        <h1 className="text-primary text-uppercase mt-5">
+          Student | Register an account
+        </h1>
 
         {loading && <Loader />}
         {error && (
@@ -112,10 +114,11 @@ const StudentRegisterScreen = () => {
               onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
-
-          <Button type="submit" variant="dark" className="btn-block mt-3">
-            Register
-          </Button>
+          <div className="d-grid gap-2">
+            <Button type="submit" variant="primary" className="btn-block mt-3">
+              Register
+            </Button>
+          </div>
         </Form>
 
         <Row className="py-3">

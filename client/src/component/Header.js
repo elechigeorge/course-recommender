@@ -26,10 +26,10 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <Navbar.Brand href="/">
-            <span className="">EXAM LAB PRO</span>
+            <span className="">CAREER RECO. SYSTEM</span>
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -40,7 +40,7 @@ const Header = () => {
                   <Nav>
                     <NavDropdown
                       id="nav-dropdown-dark-example"
-                      title="Signed In"
+                      title="You are Logged In"
                     >
                       {adminInfo && (
                         <NavDropdown.Item href="/admin/dashboard">
@@ -51,6 +51,12 @@ const Header = () => {
                       {studentInfo && (
                         <NavDropdown.Item href="/student/dashboard">
                           Dashboard
+                        </NavDropdown.Item>
+                      )}
+
+                      {studentInfo && (
+                        <NavDropdown.Item href="/recommendation">
+                          Apply for Recommendation
                         </NavDropdown.Item>
                       )}
                       {adminInfo && (
@@ -76,7 +82,6 @@ const Header = () => {
                   <Nav.Link href="/about">About</Nav.Link>
                   <Nav.Link href="/help">Help</Nav.Link>
                   <Nav.Link href="/faq">FAQ</Nav.Link>
-
                   <Nav.Link href="/student/login">Student</Nav.Link>
                   <Nav.Link href="/admin/login">Administrator</Nav.Link>
                 </Fragment>

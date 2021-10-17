@@ -16,7 +16,7 @@ function Dashboard() {
 
   return (
     <Fragment>
-      <h1 className="large text-dark">Dashboard</h1>
+      <h1 className="large text-primary text-uppercase">Dashboard</h1>
       <p className="lead">
         <i className="fas fa-user" /> Welcome,{" "}
         {adminInfo && adminInfo._doc.name}

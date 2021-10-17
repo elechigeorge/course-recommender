@@ -48,7 +48,7 @@ const AddSubject = () => {
           />
         </Form.Group>
         <div className="d-grid gap-2">
-          <Button type="submit" variant="dark" className="btn-block">
+          <Button type="submit" variant="primary" className="btn-block">
             Submit New Subject
           </Button>
         </div>

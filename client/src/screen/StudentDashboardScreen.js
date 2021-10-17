@@ -1,12 +1,24 @@
-import React, { Fragment } from "react";
-import { useSelector } from "react-redux";
+import React, { Fragment, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 import ExamDetail from "../component/ExamDetails";
+import { fetchExams } from "../action/exam";
 
 function Dashboard() {
   const studentLogin = useSelector((state) => state.studentLogin);
   const { studentInfo } = studentLogin;
+
+  // dispatch setup
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchExams());
+  }, [0]);
+
+  // grab student exams from redux
+  const studentExams = useSelector((state) => state.fetchExams);
+  const { loading: examloading, error: examerror, exams } = studentExams;
 
   if (!studentInfo) {
     return <Redirect to="/student/login" />;
@@ -15,42 +27,59 @@ function Dashboard() {
   return (
     <Fragment>
       <Fragment>
-        <h1 className="large text-dark">Dashboard</h1>
+        <h1 className="large text-primary text-uppercase">Dashboard</h1>
         <p className="lead">
-          <i className="fas fa-user" /> Welcome, Kings{" "}
+          <i className="fas fa-user" /> Welcome,{" "}
           {studentInfo && studentInfo.name}
         </p>
       </Fragment>
-
+      <hr />
       <Fragment>
-        <p className="lead">
-          Choose a subject from each section and complete the test, to qualify
-          for recommendation
+        <h1 className="lead text-primary text-uppercase">My Profile</h1>
+        <ListGroup>
+          <ListGroup.Item>
+            Name |{" "}
+            <span className="lead text-primary text-uppercase">
+              {studentInfo && studentInfo.name}
+            </span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            Gender |{" "}
+            <span className="lead text-primary text-uppercase">
+              {studentInfo && studentInfo.gender}
+            </span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            Date of Birth |{" "}
+            <span className="lead text-primary text-uppercase">
+              {studentInfo && studentInfo.date_of_birth}
+            </span>
+          </ListGroup.Item>
+        </ListGroup>
+      </Fragment>
+      <hr />
+      <Fragment>
+        <p className="lead text-primary text-uppercase">
+          Complete a minimum of Six (6) examinations to apply for course
+          recommendation
         </p>
       </Fragment>
       {/* categories to choose subjects from  */}
       <Fragment>
         <Link to="/new-exam">
-          <Button variant="dark" onClick="/new-exam">
-            Take Exam
-          </Button>
-        </Link>
-        <Link to="/new-exam">
-          <Button variant="" className="btn-outline-warning mx-2">
-            Reset My Exams
-          </Button>
+          <Button variant="primary">Start Taking Examinations</Button>
         </Link>
       </Fragment>
       {/* MY EXAM DETAILS */}
+      <hr />
       <Fragment>
-        <h3 className="lead mt-5">Here's your exams details</h3>
-        <ExamDetail exam={"f"} />
-      </Fragment>
-      {/* APPLY FOR RECOMMENDATION */}
-      <Fragment>
-        <a className="btn btn-lg btn-block btn-outline-dark">
-          Apply for a course recommendation
-        </a>
+        <h3 className="lead mt-5 text-primary text-uppercase">
+          Your Examainations Result will display here, when they are available
+        </h3>
+        {exams &&
+          exams.map((exam, index) => (
+            <ExamDetail key={exam._id} exam={exam} index={index} />
+          ))}
       </Fragment>
     </Fragment>
   );
