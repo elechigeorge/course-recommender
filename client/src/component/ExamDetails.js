@@ -3,8 +3,8 @@ import { Table, Container } from "react-bootstrap";
 
 function ExamDetails({ exam, index }) {
   return (
-    <Container>
-      <Table striped bordered hover>
+    <Container className="mb-5">
+      <Table striped bordered hover className="mb-5">
         <thead>
           <tr>
             <th>S/N</th>
@@ -18,10 +18,10 @@ function ExamDetails({ exam, index }) {
           {exam.exams &&
             exam.exams.map((ex) => (
               <tr>
-                <td>{index}</td>
+                <td>{index + 1}</td>
                 <td>{ex.subject_name.name}</td>
-                <td>{ex.grade} / 5</td>
-                <td>{ex.grade >= 3 ? "Great Score" : "Poor performace"}</td>
+                <td>{ex.grade} / 10</td>
+                <td>{ex.grade >= 5 ? "Great Score" : "Poor performace"}</td>
               </tr>
             ))}
         </tbody>
