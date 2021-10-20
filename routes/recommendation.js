@@ -6,6 +6,6 @@ import { protect } from "../middleware/authentication.js";
 const router = express.Router();
 
 // ROUTES DEFINITION
-router.route("/").post(protect, makeRecommendation);
+router.route("/").get(protect, makeRecommendation);
 
 export default router;

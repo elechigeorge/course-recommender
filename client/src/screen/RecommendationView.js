@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { ListGroup, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchExams } from "../action/exam";
+import { requestRecommendation } from "../action/recommendation";
 import ExamDetail from "../component/ExamDetails";
 import Loader from "../component/Loader";
 
@@ -16,6 +17,15 @@ const RecommendationView = () => {
   // grab student exams from redux
   const studentExams = useSelector((state) => state.fetchExams);
   const { loading: examloading, error: examerror, exams } = studentExams;
+
+  // grab recommendations bloobs
+  const recommendation = useSelector((state) => state.createRecommendation);
+  const { loading: rloading, error: rerror, query } = recommendation;
+
+  //recommendations call handler
+  const recommendHandler = () => {
+    dispatch(requestRecommendation());
+  };
 
   return (
     <div className="mt-3">
@@ -51,19 +61,22 @@ const RecommendationView = () => {
           ))}
       </Fragment>
       <hr />
-      <Fragment>
+      <Fragment className="mb-5">
         {exams && (
           <div className="d-grid gap-2">
             <Button
               variant="primary"
-              className="btn-lg btn-block"
+              className="btn-lg btn-block mb-5"
               disabled={exams.length < 6 ? true : false}
+              href="/v1/analysis"
             >
               Recommend me a course now
             </Button>
           </div>
         )}
       </Fragment>
+
+      <Fragment>{}</Fragment>
     </div>
   );
 };

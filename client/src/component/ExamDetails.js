@@ -14,7 +14,6 @@ function ExamDetails({ exam, index }) {
           </tr>
         </thead>
         <tbody>
-          {console.log(exam.exams, index)}
           {exam.exams &&
             exam.exams.map((ex) => (
               <tr>

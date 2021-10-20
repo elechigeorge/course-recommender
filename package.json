@@ -18,6 +18,8 @@
     "express-async-handler": "^1.1.4",
     "express-validator": "^6.12.2",
     "jsonwebtoken": "^8.5.1",
+    "merge-objects": "^1.0.5",
+    "ml-regression-multivariate-linear": "^2.0.3",
     "mongoose": "^6.0.7",
     "mongoose-timestamp": "^0.6.0"
   },
