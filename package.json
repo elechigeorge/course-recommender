@@ -1,6 +1,9 @@
 {
   "name": "course-recommender-system",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "type": "module",
   "description": "course recommendation system with js",
   "main": "server.js",
