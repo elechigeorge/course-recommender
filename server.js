@@ -47,7 +47,7 @@ server.get("/*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
+const PORT = process.env.PORT || 4000;
+
 // LAUNCH SERVER ROCKET
-server.listen(process.env.PORT, () =>
-  console.log("SERVER RESOURCES RUNNING ON PORT 4000")
-);
+server.listen(PORT, () => console.log("SERVER RESOURCES RUNNING ON PORT 4000"));
