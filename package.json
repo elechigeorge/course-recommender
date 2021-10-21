@@ -8,8 +8,8 @@
   "description": "course recommendation system with js",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev:server": "nodemon server.js"
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
   },
   "author": "Kings",
   "license": "MIT",

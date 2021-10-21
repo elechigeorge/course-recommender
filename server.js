@@ -31,6 +31,9 @@ mongoose
   .then((conn) => console.log("Database connected successfully..."))
   .catch((error) => console.error("Database connection error" + error));
 
+// PRODUCTION ENVIRONMENT SETTING
+server.use(express.static(path.resolve(__dirname, "../client/build")));
+
 // ROUTES SETTING
 server.use("/course", Course);
 server.use("/subject", Subject);
@@ -40,11 +43,8 @@ server.use("/admin", Admin);
 server.use("/exam", Exam);
 server.use("/recommendation", Recommendation);
 
-// PRODUCTION ENVIRONMENT SETTING
-server.use(express.static(path.join(__dirname, "build")));
-
-server.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+server.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
 // LAUNCH SERVER ROCKET
