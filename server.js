@@ -43,7 +43,7 @@ server.use("/admin", Admin);
 server.use("/exam", Exam);
 server.use("/recommendation", Recommendation);
 
-server.get("*", (req, res) => {
+server.get("/*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
