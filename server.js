@@ -35,7 +35,7 @@ mongoose
   .catch((error) => console.error("Database connection error" + error));
 
 // PRODUCTION ENVIRONMENT SETTING
-server.use(express.static(path.resolve(__dirname, "../client/build")));
+server.use(express.static(path.resolve(__dirname, "./client/build")));
 
 // ROUTES SETTING
 server.use("/course", Course);
@@ -46,8 +46,8 @@ server.use("/admin", Admin);
 server.use("/exam", Exam);
 server.use("/recommendation", Recommendation);
 
-server.get("/*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+server.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
 const PORT = process.env.PORT || 4000;
