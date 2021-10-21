@@ -22,9 +22,7 @@ export const requestRecommendation = () => async (dispatch, getState) => {
       },
     };
 
-    console.log(config.headers.Authorization);
-
-    const { data } = await api.get("/recommendation", config);
+    const { data } = await api.get("/recommendation/", config);
 
     dispatch({
       type: RECOMMEND_COURSE_SUCCESS,
