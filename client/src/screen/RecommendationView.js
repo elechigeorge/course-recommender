@@ -18,15 +18,6 @@ const RecommendationView = () => {
   const studentExams = useSelector((state) => state.fetchExams);
   const { loading: examloading, error: examerror, exams } = studentExams;
 
-  // grab recommendations bloobs
-  const recommendation = useSelector((state) => state.createRecommendation);
-  const { loading: rloading, error: rerror, query } = recommendation;
-
-  //recommendations call handler
-  const recommendHandler = () => {
-    dispatch(requestRecommendation());
-  };
-
   return (
     <div className="mt-3">
       <h2 className="text-primary text-uppercase">
@@ -75,8 +66,6 @@ const RecommendationView = () => {
           </div>
         )}
       </Fragment>
-
-      <Fragment>{}</Fragment>
     </div>
   );
 };
