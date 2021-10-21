@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { requestRecommendation } from "../action/recommendation";
 import Message from "../component/Message";
 import Loader from "../component/Loader";
+import Chart from "../component/Chart";
 
 const Analysis = () => {
   const dispatch = useDispatch();
@@ -48,18 +49,23 @@ const LoaderZero = () => {
         alignItems: "center",
       }}
     >
-      <Loader />
+      <div>
+        <Loader />
+      </div>
+
       <div>Loading your result, this might take a while please be patient</div>
     </div>
   );
 };
 
 const Analyser = () => {
+  // state
   // load reactive redux bloobs
   const createRecommendation = useSelector(
     (state) => state.createRecommendation
   );
   const { loading, error, query } = createRecommendation;
+
   return (
     <Fragment>
       {query && (
@@ -68,10 +74,17 @@ const Analyser = () => {
             Your Analyser has brough your results ! enjoy
           </p>
           <Fragment>
-            {query.performance.map((perform) => {
-              <Button className="btn-sm btn-primary">{perform.subject}</Button>;
-            })}
-            <p className="lead"> {}</p>
+            <h4 className="lead">
+              Your recommendations result are due to your performances on{" "}
+            </h4>
+            {query.performance.map((perform) => (
+              <span className="btn btn-xs btn-success m-2">
+                {perform.subject}
+              </span>
+            ))}
+            <Fragment className="mt-5">
+              {query.resp_mean && <Chart data={query.resp_mean} />}
+            </Fragment>
           </Fragment>
         </Fragment>
       )}
