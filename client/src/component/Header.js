@@ -55,7 +55,7 @@ const Header = () => {
                       )}
 
                       {studentInfo && (
-                        <NavDropdown.Item href="/recommendation">
+                        <NavDropdown.Item href="/recommend">
                           Apply for Recommendation
                         </NavDropdown.Item>
                       )}

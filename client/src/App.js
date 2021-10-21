@@ -54,7 +54,7 @@ const App = () => {
           <Route path="/subject/list" component={ViewSubjects} />
           <Route path="/course/list" component={ViewCourses} />
 
-          <Route path="/recommendation" component={RecommendationView} />
+          <Route path="/recommend" component={RecommendationView} />
 
           <Route path="/v1/analysis" component={Analysis} />
         </Container>

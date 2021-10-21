@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { ListGroup, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchExams } from "../action/exam";
-import { requestRecommendation } from "../action/recommendation";
 import ExamDetail from "../component/ExamDetails";
 import Loader from "../component/Loader";
 
