@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import User from "../model/student.js";
 
-const JWTSECRET = "secret";
+let JWTSECRET = "secret";
 
 const protect = asyncHandler(async (req, res, next) => {
   let token;
