@@ -26,8 +26,11 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 // CONNECT TO MONGODB DATABASE FROM ATLAS
+const MONGOPORT =
+  process.env.MONGOURI ||
+  "mongodb+srv://elechi:elechi@examlab.hcmbu.mongodb.net/examlab?retryWrites=true&w=majority";
 mongoose
-  .connect(process.env.MONGOURI)
+  .connect(MONGOPORT)
   .then((conn) => console.log("Database connected successfully..."))
   .catch((error) => console.error("Database connection error" + error));
 
