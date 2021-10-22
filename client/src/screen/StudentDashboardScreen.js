@@ -67,9 +67,7 @@ function Dashboard() {
       {/* categories to choose subjects from  */}
       <Fragment>
         <Link to="/new-exam">
-          <Button variant="primary" disabled="true">
-            Start Taking Examinations
-          </Button>
+          <Button variant="primary">Start Taking Examinations</Button>
         </Link>
       </Fragment>
       {/* MY EXAM DETAILS */}
