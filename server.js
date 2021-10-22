@@ -54,6 +54,4 @@ const PORT = process.env.PORT || 4000;
 const HOST = "courserecommende.herokuapp.com";
 
 // LAUNCH SERVER ROCKET
-server.listen(PORT, HOST, () =>
-  console.log("SERVER RESOURCES RUNNING ON PORT 4000")
-);
+server.listen(PORT, () => console.log("SERVER RESOURCES RUNNING ON PORT 4000"));
