@@ -36,7 +36,7 @@ const createSubject = asyncHandler(async (req, res) => {
 
 const getAllSubject = asyncHandler(async (req, res) => {
   try {
-    const subjects = await Subject.find({});
+    const subjects = await Subject.find();
 
     if (subjects) {
       res.status(200).json(subjects);
