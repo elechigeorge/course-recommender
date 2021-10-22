@@ -31,7 +31,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "courserecommende.herokuapp.com",
+  "proxy": "https://courserecommende.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
