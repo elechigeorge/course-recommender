@@ -71,7 +71,7 @@ const Analyser = () => {
       {query && (
         <Fragment>
           <p className="h4 text-uppercase mt-5 text-primary">
-            Your Analyser has brough your results ! enjoy
+            Your Analyser has brought your results ! enjoy
           </p>
           <Fragment>
             <h4 className="lead">
