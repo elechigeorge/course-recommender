@@ -18,6 +18,7 @@ const Chart = ({ data }) => {
                   label={`${key} has a rating recommendation of ${Math.round(
                     value * 20
                   )}%`}
+                  style={{ height: "30px" }}
                 />
               </div>
             </ListGroup.Item>
