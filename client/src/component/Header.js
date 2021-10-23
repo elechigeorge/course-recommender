@@ -60,7 +60,7 @@ const Header = () => {
                         </NavDropdown.Item>
                       )}
                       {adminInfo && (
-                        <NavDropdown.Item href="/subject/all">
+                        <NavDropdown.Item href="/subjects/list">
                           View Subjects
                         </NavDropdown.Item>
                       )}

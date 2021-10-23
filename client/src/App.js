@@ -51,7 +51,7 @@ const App = () => {
           <Route path="/new-exam" component={NewExamination} />
           <Route path={`/exam/:subjectId`} component={ExaminationScreen} />
 
-          <Route path="/subject/all" component={ViewSubjects} />
+          <Route path="/subjects/list" component={ViewSubjects} />
           <Route path="/course/list" component={ViewCourses} />
 
           <Route path="/recommend" component={RecommendationView} />
