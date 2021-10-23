@@ -61,7 +61,7 @@ const Header = () => {
                       )}
                       {adminInfo && (
                         <NavDropdown.Item href="/subject/list">
-                          View Subjects
+                          <Link to="/subject/list">View Subjects</Link>
                         </NavDropdown.Item>
                       )}
 
