@@ -15,7 +15,9 @@ const Chart = ({ data }) => {
                   animated
                   now={value}
                   max="5"
-                  label={`${key} has a rating of ${Math.round(value * 20)}%`}
+                  label={`${key} has a rating recommendation of ${Math.round(
+                    value * 20
+                  )}%`}
                 />
               </div>
             </ListGroup.Item>
