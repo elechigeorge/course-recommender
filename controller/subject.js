@@ -46,8 +46,8 @@ const getAllSubject = asyncHandler(async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      error:
-        "Server Error - Try Checking Your Internet Connection and Try again",
+      msg: "Server Error - Try Checking Your Internet Connection and Try again",
+      error: error,
     });
   }
 });
