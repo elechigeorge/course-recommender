@@ -40,6 +40,9 @@ const getAllSubject = asyncHandler(async (req, res) => {
 
     if (subjects) {
       res.status(200).json(subjects);
+    } else {
+      res.status(400).json({ error: "Bad Request/Something is wrong" });
+      return;
     }
   } catch (error) {
     res.status(500).json({
