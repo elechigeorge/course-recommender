@@ -9,9 +9,14 @@ const Chart = ({ data }) => {
         {data &&
           Object.entries(data).map(([key, value]) => (
             <ListGroup.Item className="h3 text-uppercase text-primary my-3">
-              {`${key} || this course ranks ${Math.round(value * 10)}/50 %`}
+              {key}
               <div>
-                <ProgressBar animated now={value} max="5" />
+                <ProgressBar
+                  animated
+                  now={value}
+                  max="5"
+                  label={`${Math.round(value * 20)}%`}
+                />
               </div>
             </ListGroup.Item>
           ))}
