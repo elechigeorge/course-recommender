@@ -23,6 +23,9 @@ const StudentLoginScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+   
+
     dispatch(login(email, password));
   };
 

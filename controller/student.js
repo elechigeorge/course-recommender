@@ -8,20 +8,27 @@ import Student from "../model/student.js";
 const authStudent = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  const student = await Student.findOne({ email });
+  try {
+    // check if email and password field is empty
+    if (email !== "" && password !== "") {
+      const student = await Student.findOne({ email });
 
-  if (student && (await student.matchPassword(password))) {
-    res.json({
-      token: generateToken(student._id),
-      name: student.name,
-      emial: student.email,
-      password: student.password,
-      date_of_birth: student.date_of_birth,
-      gender: student.gender,
-      state_of_origin: student.state_of_origin,
-    });
-  } else {
-    res.status(401).json({ error: "Invalid Credientials" });
+      if (student && (await student.matchPassword(password))) {
+        res.json({
+          token: generateToken(student._id),
+          name: student.name,
+          emial: student.email,
+          password: student.password,
+          date_of_birth: student.date_of_birth,
+          gender: student.gender,
+          state_of_origin: student.state_of_origin,
+        });
+      } else {
+        res.status(401).json({ error: "Invalid Credientials" });
+      }
+    }
+  } catch (error) {
+    res.status(500).json({ msg: "server error" });
   }
 });
 
@@ -29,10 +36,11 @@ const authStudent = asyncHandler(async (req, res) => {
 // @route   POST /student/register
 // @access  Public
 const registerStudent = asyncHandler(async (req, res) => {
-  const { email } = req.body;
 
-  console.log(req.body);
+  const { name, email, password, date_of_birth, gender, state_of_origin } =
+  req.body;
 
+  
   const studentExists = await Student.findOne({ email });
 
   if (studentExists) {
@@ -40,28 +48,38 @@ const registerStudent = asyncHandler(async (req, res) => {
     return;
   }
 
-  const student = await Student.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    date_of_birth: req.body.date_of_birth,
-    gender: req.body.gender,
-    state_of_origin: req.body.state_of_origin,
-  });
+ 
 
-  if (student) {
-    res.status(201).json({
-      token: generateToken(student._id),
-      name: student.name,
-      email: student.email,
-      password: student.password,
-      date_of_birth: student.date_of_birth,
-      gender: student.gender,
-      state_of_origin: student.state_of_origin,
+  try {
+    if (!name && !email) {
+      throw new Error("error ");
+      return;
+    }
+    const student = await Student.create({
+      name,
+      email,
+      password,
+      date_of_birth,
+      gender,
+      state_of_origin,
     });
-  } else {
-    res.status(400);
-    throw new Error("Invalid user data");
+
+    if (student) {
+      res.status(201).json({
+        token: generateToken(student._id),
+        name: student.name,
+        email: student.email,
+        password: student.password,
+        date_of_birth: student.date_of_birth,
+        gender: student.gender,
+        state_of_origin: student.state_of_origin,
+      });
+    } else {
+      res.status(400);
+      throw new Error("Invalid user data");
+    }
+  } catch (error) {
+    res.status(500).json({ msg: "server error" });
   }
 });
 

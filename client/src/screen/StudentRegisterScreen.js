@@ -26,9 +26,11 @@ const StudentRegisterScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(
-      register(name, email, password, date_of_birth, gender, state_of_origin)
-    );
+    if (email !== "" && name !== "" && password !== "" && date_of_birth !== "" && gender !== "" && state_of_origin !== "") {
+      dispatch(
+        register(name, email, password, date_of_birth, gender, state_of_origin)
+      );
+    }
   };
 
   return (

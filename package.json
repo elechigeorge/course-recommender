@@ -2,7 +2,7 @@
   "name": "course-recommender-system",
   "version": "1.0.0",
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "type": "module",
   "description": "course recommendation system with js",
@@ -24,7 +24,8 @@
     "merge-objects": "^1.0.5",
     "ml-regression-multivariate-linear": "^2.0.3",
     "mongoose": "^6.0.7",
-    "mongoose-timestamp": "^0.6.0"
+    "mongoose-timestamp": "^0.6.0",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
