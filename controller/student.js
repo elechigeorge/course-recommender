@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
 import Exam from "../model/exam.js";
 import Student from "../model/student.js";
+import reader from 'xlsx'
 
 // @desc    Auth user & get token
 // @route   POST /student/login
@@ -115,4 +116,14 @@ const getStudentProfile = asyncHandler(async (req, res) => {
  
 });
 
-export { authStudent, registerStudent, getAllStudent, getStudentProfile };
+// @desc    Get all student instances
+// @route   GET /student/test_data
+// @access  Private to admin
+const getAllStudentTestData = asyncHandler(async (req, res) => {
+  
+
+    
+});
+
+
+export { authStudent, registerStudent, getAllStudent, getStudentProfile, getAllStudentTestData };
