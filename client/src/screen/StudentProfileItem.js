@@ -37,7 +37,7 @@ function StudentProfileList() {
            {profiles && profiles.length == 0 ? <p className="display-1 lead text-uppercase">This student has no profile</p> : <p className="lead text-uppercase mt-4">Examinations concluded</p>}
    
            {profiles ? profiles.map(profile => profile.exams.map(exam => (
-               <span className="btn btn-sm btn-primary mx-2 " key={exam.subject_name._id}>{exam.subject_name.name}</span>
+               <span className="btn btn-sm btn-primary mx-2 " key={exam.subject_name._id}>{exam.subject_name.name} score {exam.grade}</span>
            ))) : null}
    
     
