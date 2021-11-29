@@ -72,7 +72,7 @@ const Header = () => {
                       )}
 
                       {adminInfo && (
-                        <NavDropdown.Item href="/student/lists">
+                        <NavDropdown.Item href="/student/list">
                           View Student Profile
                         </NavDropdown.Item>
                       )}
