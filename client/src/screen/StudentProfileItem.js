@@ -30,7 +30,7 @@ function StudentProfileList() {
     <div className="mt-5">
       {loading ? <Loader /> : (
           <div>
-            <Link to="/student/list" placeholder="Go back" className="p-2 bg-primary text-light mb-3" >Go back</Link>
+            <Link to="/student/lists" placeholder="Go back" className="p-2 bg-primary text-light mb-3" >Go back</Link>
            
            {error && <Message variant="danger">{error}</Message>}
 
