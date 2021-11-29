@@ -23,7 +23,7 @@ export const getAllStudentData = () => async (dispatch, getState) => {
           },
         };
     
-        const { data } = await api.get(`/student/list`, config);
+        const { data } = await api.get(`/student/lists`, config);
     
         dispatch({
           type: GET_ALL_STUDENTS_SUCCESS,
@@ -56,7 +56,7 @@ export const getStudentProfile = (id) => async (dispatch, getState) => {
           },
         };
     
-        const { data } = await api.get(`/student/list/${id}`, config);
+        const { data } = await api.get(`/student/lists/${id}`, config);
     
         dispatch({
           type: GET_SINGLE_SUCCESS,

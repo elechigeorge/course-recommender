@@ -12,9 +12,9 @@ import {
 
 router.route("/").post(registerStudent);
 
-router.route("/list").get(getAllStudent);
+router.route("/lists").get(getAllStudent);
 
-router.route("/list/:id").get(getStudentProfile)
+router.route("/lists/:id").get(getStudentProfile)
 router.route("/test_data").get(getAllStudentTestData);
 
 router.post("/login", authStudent);
