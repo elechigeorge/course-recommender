@@ -13,7 +13,11 @@ import { createQuestionReducer, getQuestionReducer } from "./reducer/question";
 import { registerExamReducer, fetchExamsReducer } from "./reducer/exam";
 
 import { createCourseReducer, getCourseReducer } from "./reducer/course";
+
 import { requestRecommendationReducer } from "./reducer/recommendation";
+
+import {getAllStudentReducer, getStudentProfile} from "./reducer/profile";
+
 
 const reducer = combineReducers({
   // students reducers list
@@ -42,6 +46,10 @@ const reducer = combineReducers({
 
   // recommender module
   createRecommendation: requestRecommendationReducer,
+
+  // student profile modules
+  getAllStudents: getAllStudentReducer,
+  getProfile: getStudentProfile,
 });
 
 const studentInfoFromStorage = localStorage.getItem("studentInfo")

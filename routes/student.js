@@ -5,13 +5,17 @@ const router = express.Router();
 import {
   authStudent,
   registerStudent,
-  getStudentById,
+  getAllStudent,
+  getStudentProfile,
 } from "../controller/student.js";
 
 router.route("/").post(registerStudent);
 
-router.route("/user/:id").get(getStudentById);
+router.route("/list").get(getAllStudent);
+
+router.route("/list/:id").get(getStudentProfile)
 
 router.post("/login", authStudent);
+
 
 export default router;

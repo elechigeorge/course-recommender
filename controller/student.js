@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
+import Exam from "../model/exam.js";
 import Student from "../model/student.js";
 
 // @desc    Auth user & get token
@@ -36,19 +37,15 @@ const authStudent = asyncHandler(async (req, res) => {
 // @route   POST /student/register
 // @access  Public
 const registerStudent = asyncHandler(async (req, res) => {
-
   const { name, email, password, date_of_birth, gender, state_of_origin } =
-  req.body;
+    req.body;
 
-  
   const studentExists = await Student.findOne({ email });
 
   if (studentExists) {
     res.status(400).json({ error: "Email Already Exists" });
     return;
   }
-
- 
 
   try {
     if (!name && !email) {
@@ -83,18 +80,39 @@ const registerStudent = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Get user by ID
-// @route   GET /student/:id
-// @access
-const getStudentById = asyncHandler(async (req, res) => {
-  const student = await Student.findById(req.params.id).select("-password");
+// @desc    Get all student instances
+// @route   GET /student
+// @access  Private to admin
+const getAllStudent = asyncHandler(async (req, res) => {
+  try {
+    // get all students instances
+    const student = await Student.find({}).select("-password");
 
-  if (student) {
-    res.json(student);
-  } else {
-    res.status(404);
-    throw new Error("Student Details not found");
+    if (student) {
+      res.status(200).json(student);
+    }
+  } catch (error) {
+    res.status(500).json({ msg: "server error" });
   }
 });
 
-export { authStudent, registerStudent, getStudentById };
+const getStudentProfile = asyncHandler(async (req, res) => {
+  // grab student object id 
+  const id = req.params.id;
+
+  try {
+    // get student exams information 
+    const exams = await Exam.find({student: id}).populate("student")
+
+    if(exams) {
+      res.status(200).json(exams);
+    } else {
+      res.status(200).json("this student hasn't written any papers yet")
+    }
+  } catch (error) {
+    res.status(500).json("Server Error")
+  }
+ 
+});
+
+export { authStudent, registerStudent, getAllStudent, getStudentProfile };

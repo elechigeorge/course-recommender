@@ -70,6 +70,13 @@ const Header = () => {
                           View Courses
                         </NavDropdown.Item>
                       )}
+
+                      {adminInfo && (
+                        <NavDropdown.Item href="/student/list">
+                          View Student Profile
+                        </NavDropdown.Item>
+                      )}
+
                       <NavDropdown.Divider />
                       <NavDropdown.Item onClick={logoutAdmin}>
                         Sign Out
