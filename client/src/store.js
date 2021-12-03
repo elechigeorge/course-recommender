@@ -16,7 +16,7 @@ import { createCourseReducer, getCourseReducer } from "./reducer/course";
 
 import { requestRecommendationReducer } from "./reducer/recommendation";
 
-import {getAllStudentReducer, getStudentProfile} from "./reducer/profile";
+import {getAllStudentReducer, getStudentProfile, getTestReducer} from "./reducer/profile";
 
 
 const reducer = combineReducers({
@@ -50,6 +50,7 @@ const reducer = combineReducers({
   // student profile modules
   getAllStudents: getAllStudentReducer,
   getProfile: getStudentProfile,
+  getTestStudent: getTestReducer,
 });
 
 const studentInfoFromStorage = localStorage.getItem("studentInfo")

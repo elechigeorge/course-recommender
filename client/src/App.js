@@ -29,6 +29,7 @@ import RecommendationView from "./screen/RecommendationView";
 import Analysis from "./screen/Analysis";
 import StudentProfileList  from "./screen/StudentProfileList";
 import StudentProfileItem from "./screen/StudentProfileItem";
+import ViewAllStudents from './screen/ViewAllStudent';
 
 const App = () => {
   return (
@@ -62,6 +63,7 @@ const App = () => {
           
           <Route path="/student/list" component={StudentProfileList} />
           <Route path={`/student/profile/:id`} component={StudentProfileItem} />
+          <Route path="/student/view" component={ViewAllStudents} />
         </Container>
       </main>
     </Router>

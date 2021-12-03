@@ -6,6 +6,9 @@ import {
   GET_SINGLE_FAILED,
   GET_SINGLE_REQUEST,
   GET_SINGLE_SUCCESS,
+  GET_TEST_FAILED,
+  GET_TEST_REQUEST,
+  GET_TEST_SUCCESS
 } from "../constant/types.js";
 
 // LOADING STUDENTS LIST PROCESS
@@ -72,3 +75,34 @@ export const getStudentProfile = (id) => async (dispatch, getState) => {
         });
       }
 }
+
+export const getTestData = () => async (dispatch, getState) => {
+  try {
+      dispatch({ type: GET_TEST_REQUEST });
+  
+      const {
+        adminLogin: { adminInfo },
+      } = getState();
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${adminInfo.token}`,
+        },
+      };
+  
+      const { data } = await api.get(`/student/test_data`, config);
+  
+      dispatch({
+        type: GET_TEST_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: GET_TEST_FAILED,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+};

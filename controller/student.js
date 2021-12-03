@@ -2,7 +2,9 @@ import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
 import Exam from "../model/exam.js";
 import Student from "../model/student.js";
-import reader from 'xlsx'
+import fs from "fs";
+import jData from "../utils/data.js";
+
 
 // @desc    Auth user & get token
 // @route   POST /student/login
@@ -120,9 +122,9 @@ const getStudentProfile = asyncHandler(async (req, res) => {
 // @route   GET /student/test_data
 // @access  Private to admin
 const getAllStudentTestData = asyncHandler(async (req, res) => {
-  
 
-    
+  // create env
+  res.status(200).json({art: jData.ART, science: jData.SCIENCE})
 });
 
 
