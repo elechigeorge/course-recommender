@@ -43,6 +43,11 @@ function StudentProfileList() {
                         <span className="text-uppercase text-primary px-2">Date of Birth:</span> {data["D.O.B"]}
                         <br />
                         <span className="text-uppercase text-primary px-2">Gender:</span> {data["GENDER"]}
+                        
+                       
+                        <br />
+                        <span className="text-uppercase text-primary px-2">Recommended course:</span> {data["COURSE/CAREER PATH "]}
+                        
                         <p>exams taken</p>
                         Math: {data.MATH ? data.MATH / 10 : "null"}
                         <br />
@@ -55,6 +60,8 @@ function StudentProfileList() {
                         Government: {data.GOVT ? data.GOVT / 10 : "null"}
                         <br />
                         CRK: {data.CRK ? data.CRK / 10 : "null"}
+                        <br />
+
 
                     </ListGroup.Item>
                 </ListGroup>
@@ -74,10 +81,12 @@ function StudentProfileList() {
                         <span className="text-uppercase text-primary px-2">Date of Birth:</span> {data["D.O.B"]}
                         <br />
                         <span className="text-uppercase text-primary px-2">Gender:</span> {data["GENDER"]}
-                        <p>exams taken</p>
-                        Math: {data.MATH ? data.MATH / 10 : "null"}
                         <br />
-                        English: {data.ENG ? data.ENG / 10 : "null"}
+                        <span className="text-uppercase text-primary px-2">Recommended course:</span> {data["CAREER PATH/COURSES."]}
+                        <p>exams taken</p>
+                        Math: {data.MATHEMATICS ? data.MATHEMATICS / 10 : "null"}
+                        <br />
+                        English: {data.ENGLISH ? data.ENGLISH / 10 : "null"}
                         <br />
                         Physics: {data.PHYSICS ? data.PHYSICS / 10 : "null"}
                         <br />
