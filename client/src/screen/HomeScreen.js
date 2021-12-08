@@ -32,8 +32,12 @@ function HomeScreen() {
               university courses to aspiring university and polytechnics student
               based on their academic performance with each subjects{" "}
             </p>
-            <a href="/student/register" className="btn btn-primary btn-lg">
-              Get Started
+            <a href="/student/login" className="btn btn-primary btn-lg">
+              Get Started 
+            </a>
+
+            <a href="/about" className="btn btn-success btn-lg mx-4">
+              Learn More
             </a>
           </div>
         </Col>
