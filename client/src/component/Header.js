@@ -38,50 +38,37 @@ const Header = () => {
               {studentInfo || adminInfo ? (
                 <Fragment>
                   <Nav>
+                  {adminInfo && (<Nav.Link href="/admin/dashboard">Dashboard</Nav.Link>)}
+
+                  {studentInfo && (<Nav.Link href="/student/dashboard">Dashboard</Nav.Link>)}
+
+                  {studentInfo && (<Nav.Link href="/recommend">Apply for Recommendation</Nav.Link>)}
+
+                  {adminInfo && (<Nav.Link href="/subjects/list">View Subjects</Nav.Link>)}
+
+                  {adminInfo && (<Nav.Link href="/course/list">View Courses</Nav.Link>)}
+
+                  {adminInfo && (<Nav.Link href="/student/list">View Student Profile</Nav.Link>)}
+
+                  
+
+
                     <NavDropdown
                       id="nav-dropdown-dark-example"
                       title="You are Logged In"
                     >
-                      {adminInfo && (
-                        <NavDropdown.Item href="/admin/dashboard">
-                          Dashboard
-                        </NavDropdown.Item>
-                      )}
-
-                      {studentInfo && (
-                        <NavDropdown.Item href="/student/dashboard">
-                          Dashboard
-                        </NavDropdown.Item>
-                      )}
-
-                      {studentInfo && (
-                        <NavDropdown.Item href="/recommend">
-                          Apply for Recommendation
-                        </NavDropdown.Item>
-                      )}
-                      {adminInfo && (
-                        <NavDropdown.Item href="/subjects/list">
-                          View Subjects
-                        </NavDropdown.Item>
-                      )}
-
-                      {adminInfo && (
-                        <NavDropdown.Item href="/course/list">
-                          View Courses
-                        </NavDropdown.Item>
-                      )}
-
-                      {adminInfo && (
-                        <NavDropdown.Item href="/student/list">
-                          View Student Profile
-                        </NavDropdown.Item>
-                      )}
-
                        {adminInfo && (
                         <NavDropdown.Item href="/student/view">
                           View Test Data
                         </NavDropdown.Item>
                       )}
+
+                      {adminInfo && (
+                        <NavDropdown.Item href="/system-process">
+                          View System Design Process
+                        </NavDropdown.Item>
+                      )}
+
 
                       <NavDropdown.Divider />
                       <NavDropdown.Item onClick={logoutAdmin}>

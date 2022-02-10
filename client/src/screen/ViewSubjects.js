@@ -34,7 +34,7 @@ const ViewSubjects = () => {
                       <th>Subject Title</th>
                       <th>Required Pass Grade</th>
 
-                      <th>Action</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
@@ -42,11 +42,7 @@ const ViewSubjects = () => {
                       <th>{subject.name}</th>
                       <th>{subject.grade}</th>
 
-                      <th>
-                        <Button variant="danger" disabled>
-                          Delete
-                        </Button>
-                      </th>
+                     
                     </tr>
                   </tbody>
                 </Table>

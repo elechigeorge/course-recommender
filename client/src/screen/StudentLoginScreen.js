@@ -52,7 +52,7 @@ const StudentLoginScreen = ({ location, history }) => {
             <Form.Control
               type="text"
               placeholder="Enter Email Address"
-              value={email}
+              value={email} 
               onChange={(e) => setEmail(e.target.value)}
             ></Form.Control>
           </Form.Group>

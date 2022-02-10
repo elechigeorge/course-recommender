@@ -35,7 +35,7 @@ const ViewCourses = () => {
                       <th>Second Subject </th>
                       <th>Third Subject</th>
                       <th>Fourth Subject </th>
-                      <th>Action</th>
+                     
                     </tr>
                   </thead>
                   <tbody>
@@ -45,11 +45,7 @@ const ViewCourses = () => {
                       <th>{course.second_subject.subject_name} </th>
                       <th>{course.third_subject.subject_name}</th>
                       <th>{course.fourth_subject.subject_name}</th>
-                      <th>
-                        <Button variant="danger" disabled>
-                          Delete
-                        </Button>
-                      </th>
+                      
                     </tr>
                   </tbody>
                 </Table>
