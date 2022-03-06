@@ -81,4 +81,22 @@ const getAllCourse = asyncHandler(async (req, res) => {
   }
 });
 
-export { createCourse, getAllCourse };
+const deleteCourse = asyncHandler(async (req, res) => {
+  try {
+    // grab subject with it id 
+    const sId = req.params.id;
+
+    await Course.findOneAndDelete({ _id: sId });
+
+    res.status(200).json({ mesg: "Deleted ..." })
+
+
+  } catch (error) {
+    res.status(500).json({
+      error:
+        "Server Error - Try Checking Your Internet Connection and Try again",
+    });
+  }
+});
+
+export { createCourse, getAllCourse, deleteCourse };

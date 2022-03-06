@@ -6,6 +6,9 @@ import {
   GET_SUBJECT_SUCCESS,
   GET_SUBJECT_REQUEST,
   GET_SUBJECT_FAILED,
+  DELETE_SUBJECT_REQUEST,
+  DELETE_SUBJECT_SUCCESS,
+  DELETE_SUBJECT_FAILED
 } from "../constant/types";
 
 import { logout } from "./admin";
@@ -66,6 +69,32 @@ export const createSubject = (subject) => async (dispatch, getState) => {
     dispatch({
       type: CREATE_SUBJECT_FAILED,
       payload: message,
+    });
+  }
+};
+
+
+// DELETE STORED SUBJECTS
+export const removeSubject = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: DELETE_SUBJECT_REQUEST });
+
+    const { data } = await api.delete(`/subject/${id}`);
+
+    dispatch({
+      type: DELETE_SUBJECT_SUCCESS,
+      payload: data,
+    });
+
+    document.location.href = "/subjects/list";
+
+  } catch (error) {
+    dispatch({
+      type: DELETE_SUBJECT_FAILED,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     });
   }
 };

@@ -97,9 +97,29 @@ const getSingleSubjectByName = asyncHandler(async (req, res) => {
   }
 });
 
+
+const deleteSubject = asyncHandler(async (req, res) => {
+  try {
+    // grab subject with it id 
+    const sId = req.params.id;
+
+    await Subject.findOneAndDelete({ _id: sId });
+
+    res.status(200).json({ mesg: "Deleted ..." })
+
+
+  } catch (error) {
+    res.status(500).json({
+      error:
+        "Server Error - Try Checking Your Internet Connection and Try again",
+    });
+  }
+});
+
 export {
   createSubject,
   getAllSubject,
   getSingleSubjectDetails,
   getSingleSubjectByName,
+  deleteSubject,
 };

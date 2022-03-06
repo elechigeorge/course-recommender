@@ -5,6 +5,9 @@ import {
   GET_SUBJECT_FAILED,
   GET_SUBJECT_REQUEST,
   GET_SUBJECT_SUCCESS,
+  DELETE_SUBJECT_FAILED,
+  DELETE_SUBJECT_REQUEST,
+  DELETE_SUBJECT_SUCCESS
 } from "../constant/types";
 
 export const createSubjectReducer = (state = {}, action) => {
@@ -27,6 +30,20 @@ export const getSubjectReducer = (state = [], action) => {
     case GET_SUBJECT_SUCCESS:
       return { loading: false, subject: action.payload };
     case GET_SUBJECT_FAILED:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+
+export const deleteSubjectReducer = (state = {}, action) => {
+  switch (action.type) {
+    case DELETE_SUBJECT_REQUEST:
+      return { loading: true };
+    case DELETE_SUBJECT_SUCCESS:
+      return { loading: false, subject: action.payload };
+    case DELETE_SUBJECT_FAILED:
       return { loading: false, error: action.payload };
     default:
       return state;

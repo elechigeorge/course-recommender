@@ -6,13 +6,13 @@ import { studentLoginReducer, studentRegisterReducer } from "./reducer/student";
 
 import { adminLoginReducer, adminRegisterReducer } from "./reducer/admin";
 
-import { createSubjectReducer, getSubjectReducer } from "./reducer/subject";
+import { createSubjectReducer, getSubjectReducer, deleteSubjectReducer } from "./reducer/subject";
 
 import { createQuestionReducer, getQuestionReducer } from "./reducer/question";
 
 import { registerExamReducer, fetchExamsReducer } from "./reducer/exam";
 
-import { createCourseReducer, getCourseReducer } from "./reducer/course";
+import { createCourseReducer, getCourseReducer, deleteCourseReducer } from "./reducer/course";
 
 import { requestRecommendationReducer } from "./reducer/recommendation";
 
@@ -35,10 +35,12 @@ const reducer = combineReducers({
   // subjects reducer
   createSubject: createSubjectReducer,
   getSubject: getSubjectReducer,
+  deleteSubject: deleteSubjectReducer,
 
   // course reducer
   createCourse: createCourseReducer,
   getCourse: getCourseReducer,
+  deleteCourse: deleteCourseReducer,
 
   // exam reducer
   registerExam: registerExamReducer,

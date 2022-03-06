@@ -6,6 +6,9 @@ import {
   GET_COURSE_SUCCESS,
   GET_COURSE_REQUEST,
   GET_COURSE_FAILED,
+  DELETE_COURSE_FAILED,
+  DELETE_COURSE_REQUEST,
+  DELETE_COURSE_SUCCESS
 } from "../constant/types";
 
 import { logout } from "./admin";
@@ -66,6 +69,35 @@ export const makeCourse = (course) => async (dispatch, getState) => {
     dispatch({
       type: CREATE_COURSE_FAILED,
       payload: message,
+    });
+  }
+};
+
+
+export const removeCourse = (id) => async (dispatch, getState) => {
+  try {
+
+    console.log("called")
+
+    
+    dispatch({ type: DELETE_COURSE_REQUEST });
+
+    const { data } = await api.delete(`/course/${id}`);
+
+    dispatch({
+      type: DELETE_COURSE_SUCCESS,
+      payload: data,
+    });
+
+    document.location.href = "/course/list";
+    
+  } catch (error) {
+    dispatch({
+      type: DELETE_COURSE_FAILED,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     });
   }
 };

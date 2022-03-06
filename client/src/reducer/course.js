@@ -8,6 +8,9 @@ import {
   RECOMMEND_COURSE_FAILED,
   RECOMMEND_COURSE_REQUEST,
   RECOMMEND_COURSE_SUCCESS,
+  DELETE_COURSE_FAILED,
+  DELETE_COURSE_REQUEST,
+  DELETE_COURSE_SUCCESS
 } from "../constant/types";
 
 export const createCourseReducer = (state = {}, action) => {
@@ -30,6 +33,19 @@ export const getCourseReducer = (state = {}, action) => {
     case GET_COURSE_SUCCESS:
       return { loading: false, courses: action.payload };
     case GET_COURSE_FAILED:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const deleteCourseReducer = (state = {}, action) => {
+  switch (action.type) {
+    case DELETE_COURSE_REQUEST:
+      return { loading: true };
+    case DELETE_COURSE_SUCCESS:
+      return { loading: false, message: action.payload };
+    case DELETE_COURSE_FAILED:
       return { loading: false, error: action.payload };
     default:
       return state;
