@@ -3,7 +3,7 @@ import store from "../store";
 import { STUDENT_LOGOUT } from "../constant/types";
 
 const api = axios.create({
-  baseURL: "https://courserecommende.herokuapp.com",
+  baseURL: "https://coursere.herokuapp.com",
   // baseURL: "http://localhost:4000",
   headers: {
     "Content-Type": "application/json",
